@@ -1,0 +1,70 @@
+﻿@model IEnumerable<e_ptit_2.Models.GameViewModel>
+@{
+    ViewBag.Title = "Ժամանցի խաղեր";
+    ViewBag.BannerImage = "../Content/images/jamants.png";
+}
+
+
+<div class="gallery-grid-items">
+    <div class="grid-filter-label" data-filter=".brick">Բոլոր Խաղերը</div>
+    <div class="grid-filter-label blue" data-filter=".blue">Տարբերութեան Խաղ</div>
+    <div class="grid-filter-label pink" data-filter=".pink">Լաբիւրինթոսի Խաղ</div>
+    <div class="grid-filter-label green" data-filter=".green">Գրել Պատասխանը</div>
+    <div class="grid-filter-label yellow" data-filter=".yellow">Ընտրել Մէկը</div>
+
+</div>
+
+<div id="gallery-grid" class="free-wall">
+    @foreach (var item in Model)
+            {
+            <div class="brick @item.Color @item.GameType" data-game-url="@item.URL" style="cursor: pointer;">
+                <h3>@item.Title</h3>
+                <div class="grid__img__wrp">
+                    <img src="~/Content/images/games/icons/@item.LargeIcon" />
+                    <br />
+                </div>
+            </div>
+            }
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="../Content/js/freewall.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var wall = new Freewall("#gallery-grid");
+            wall.reset({
+                selector: '.brick',
+                animate: true,
+                cellW: 270,
+                cellH: 'auto',
+                gutterX: 25, // width spacing between blocks;
+                gutterY: 25, // height spacing between blocks;
+                onResize: function () {
+                    wall.fitWidth();
+                }
+            });
+            wall.addCustomEvent('onBlockLoad', function (setting) {
+                console.log(setting);
+            });
+
+            $('.brick').click(function () {
+                window.location.href = $(this).data('game-url');
+            });
+
+
+            $(".grid-filter-label").click(function () {
+                $(".grid-filter-label").removeClass("active");
+                var filter = $(this).addClass('active').data('filter');
+                if (filter) {
+                    wall.filter(filter);
+                } else {
+                    wall.unFilter();
+                }
+            });
+
+            wall.fitWidth();
+
+        });
+    </script>
+}

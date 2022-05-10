@@ -1,0 +1,90 @@
+
+/* Style for grid cells */
+.rf-tgrid {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 1px;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid #000000;
+    width: 50px;
+    height: 50px;
+}
+
+.rf-main-container {
+    background-color: #76c0db; /*main background*/
+    padding: 10px;
+    padding-bottom: 350px;
+    padding-left: 50px;
+    background-position-y: bottom;
+    background-position-x: left;
+    background-repeat: no-repeat;
+    background-image: url("../../images/games/armenian/ed18/hid1/bg.png");
+    /*border: 1px solid red;*/
+}
+
+/* Style for the grid */
+.rf-tablestyle {
+    border: 2px solid;
+    background-color: #cbd013; /*grid background*/
+    cursor: pointer;
+    color: #000000;
+}
+
+/* Style for the div containing the grid */
+#rf-searchgamecontainer {
+    float: left;
+    padding-right: 15px; 
+}
+
+/* Style for the div containing the word list */
+#rf-wordcontainer {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    float: left;
+    padding-right: 50px;
+    padding-left: 30px;
+    cursor: default;
+    background-color: #cbd013;
+    color: #000000;
+    font-weight: bold;
+    border: 1px solid;
+    border-color: #000000;
+    cursor: pointer;
+    padding: 30px;
+    margin: 5px;
+}
+
+/* Style for the words that have been found */
+.rf-foundword {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    text-decoration: line-through;
+    color: #0f799f;
+    font-style: italic;
+    background-color: #cbd013;
+}
+
+#rf-tablegrid .rf-armed {
+/*	background: lightcyan;*/
+}
+
+#rf-tablegrid .rf-highlight {
+    background: red;
+}
+
+
+#rf-tablegrid .rf-glowing {
+	background: #e2007a;
+        
+}
+
+#rf-tablegrid .rf-selected {
+    background: #0f799f;
+}
+
+/* style for words that didn't make it on the grid */
+.rf-pfalse {
+    color: gray;
+    visibility: hidden; 
+}

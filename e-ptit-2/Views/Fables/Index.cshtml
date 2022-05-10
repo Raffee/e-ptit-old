@@ -1,0 +1,103 @@
+﻿@model IEnumerable<e_ptit_2.Models.Proverb>
+@{
+    ViewBag.Title = "Առակներ";
+    ViewBag.BannerImage = "../Content/images/aragner.png";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            placement: 'top',
+            trigger: 'hover'
+        });
+    });
+</script>
+<style type="text/css">
+    .bs-example {
+        margin: 150px 50px;
+    }
+
+    .popover {
+        border: 1px dotted red;
+    }
+
+    .popover-content {
+        background-color: coral;
+        color: #FFFFFF;
+    }
+</style>
+<style>
+    .table th, .table td {
+        border-top: none !important;
+    }
+
+    .table tbody > tr > td.vert-align {
+        vertical-align: bottom;
+    }
+</style>
+<style>
+    .table th, .table td {
+        border-top: none !important;
+    }
+
+    .table tbody > tr > td.vert-align {
+        vertical-align: bottom;
+    }
+</style>
+
+<div class="stories-grid">
+    @foreach (var item in Model)
+            {
+        <div class="grid-col">
+            <div class="img-wrp">
+                <img src="@Url.Content("~/Content/images/Fables/" + @Html.ValueFor(modelItem => item.ImageName))" />
+            </div>
+            @{
+                string titleUpper = item.title.ToUpperInvariant();
+            }
+            <h3>@Html.DisplayFor(modelItem => titleUpper)</h3>
+            <p>
+                @Html.Raw(@item.summary)
+            </p>
+            @Html.ActionLink("կարդալ ամբողջութեամբ", "Read", new { id = item.pkProverbId }, new { @class = "btn btn-info" })
+        </div>
+
+                }
+</div>
+
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".owlcarousel").owlCarousel({
+                pagination: false,
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+            });
+            $('.nav-toggle').click(function (e) {
+                $('ul#nav').slideToggle();
+                $(this).toggleClass('active');
+            });
+            $(window).resize(function () {
+                if ($(window).width() > 800) {
+                    $('ul#nav').show();
+                } else {
+                    $('ul#nav').hide();
+                    $('.nav-toggle').removeClass('active');
+                }
+            });
+
+            $('.has-submenu a').click(function (e) {
+                $(this).parents('li').children('ul').slideToggle();
+                return false;
+            });
+
+
+
+        });
+    </script>
+}

@@ -1,0 +1,195 @@
+﻿@using Newtonsoft.Json
+
+@model e_ptit_2.Models.HiddenWordViewModel
+@{
+    ViewBag.Title = "Պահուած Բառը";
+}
+
+<script type="text/javascript">
+
+    var data = @Html.Raw(JsonConvert.SerializeObject(this.Model));
+
+</script>
+
+<div>
+    <div id="sound">
+    </div>
+
+    <div id="fireworks-template">
+        <div id="fw" class="firework"></div>
+        <div id="fp" class="fireworkParticle">
+            <img src="../../Content/fireworks/image/particles.gif" alt="" />
+        </div>
+    </div>
+
+    <div id="fireContainer"></div>
+</div>
+
+<audio id="myAudio">
+    <source src="../../Content/audio/@String.Format("{0}.mp3", Model.SoundFile)" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioApplause">
+    <source src="../../Content/audio/win.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioError">
+    <source src="../../Content/audio/incorrect.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioSanta">
+    <source src="../../Content/audio/tadaa1.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+            <h2>@Model.HiddenWordGame.Title.ToUpperInvariant()</h2>
+            <br />
+            <h3>@Model.HiddenWordGame.Description</h3>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="row rf-main-container">
+            <div class="row">
+                <div id="theGrid"></div>
+            </div>
+        </div>
+        <input type="text" id="txtAnswer" style="font-size: 20px; font-weight: bold; color: darkgreen;" data-is-solved="false" class="txt-data" onblur="CheckAnswer(false)" />
+        <a id="lnkAns" href="#" runat="server" onclick="return CheckAnswer(true);" class="btn btn-info small pink danger">@e_ptit_2.Helpers.Constants.SHOW_ANSWER</a>
+        <div id="td"></div>
+    </div>
+</div>
+<div class="clr"></div>
+
+@section scripts {
+    <script type="text/javascript" src="../../Content/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../../Content/specialJS/jquery.wordsearchgame.js"></script>
+
+    <script>
+
+        if (typeof (soundManagerInit) != 'undefined') soundManagerInit();
+        
+        function CheckAnswer(showAnswer)
+        {
+            if($("#txtAnswer").attr("data-is-solved") == 'false')
+            {
+                var answer = $("#txtAnswer").val();
+                if(answer)
+                {
+                    CheckIfCorrectAnswer();
+                }
+                else if(showAnswer)
+                {
+                    swal("@e_ptit_2.Helpers.Constants.SHOW_ANSWER", "@Model.correctAnswer");
+                    return false;
+                }
+            }
+        }
+
+        function CheckAnswerWhileTyping()
+        {
+            var txtAnswer = $("#txtAnswer");
+            var answer = $("#txtAnswer").val();
+
+            if(data.correctAnswer.toLowerCase() == answer.toLowerCase())
+            {
+                DoFireworks();
+                playApplause();
+                document.getElementById(txtAnswer.attr('id')).style.borderColor = "green";
+                txtAnswer.attr("data-is-solved", "true");
+            }
+            else if(answer.length >= data.correctAnswer.length)
+            {
+                document.getElementById($(txtAnswer).attr('id')).style.borderColor = "red";
+                playErrorSound();
+            }
+        }
+
+        function DoFireworks() {
+            var r = 4 + parseInt(Math.random() * 16);
+            for (var i = r; i--;) {
+                setTimeout('createFirework(50,200,4,null,null,null,null,null,Math.random()>0.5,true)', (i + 1) * (1 + parseInt(Math.random() * 1000)));
+            }
+            return false;
+        }
+
+        function playSound() {
+            var vid = document.getElementById("myAudio");
+            vid.play();
+        }
+
+        function playApplause() {
+            var vid = document.getElementById("audioApplause");
+            vid.play();
+            var hohoho = document.getElementById("audioSanta");
+            hohoho.play();
+        }
+
+        function playErrorSound() {
+            var vid = document.getElementById("audioError");
+            vid.play();
+        }
+
+        EM.addEventListener(window, 'domload', function () {
+            VirtualKeyboard.toggle('txtAnswer', 'td');
+        });
+
+        var soundFileName = data.soundFileName;
+
+        function CheckIfCorrectAnswer()
+        {
+            debugger;
+            
+            var txtAnswer = $("#txtAnswer");
+            var answer = $("#txtAnswer").val();
+
+            if(data.correctAnswer.toLowerCase() == answer.toLowerCase())
+            {
+                DoFireworks();
+                playApplause();
+                document.getElementById($(txtAnswer).attr('id')).style.borderColor = "green";
+                txtAnswer.attr("data-is-solved", "true");
+            }
+            else
+            {
+                txtAnswer.val('');
+                document.getElementById($(txtAnswer).attr('id')).style.borderColor = "red";
+                playErrorSound();
+            }            
+        }
+
+        $(document).ready(function () {
+            //attach the game to a div
+            $("#theGrid").wordsearchwidget({"gridWidth" : data.Cols, "gridHeight" : data.Rows, "wordObjlist" : JSON.parse(data.wordObjsList), "wordList" : data.words, "targetLetters" : JSON.parse(data.targetLetters)});
+
+            $(".txt-data").on("virtualKeyboardClick", function (event) {
+                if (event.keyCode == 13) {
+                }
+                else {
+                    CheckAnswerWhileTyping();
+                }
+            });
+
+            $(".txt-data").on("keyup", function (event) {
+                if (event.keyCode == 13) {
+                }
+                else {
+                    CheckAnswerWhileTyping();
+                }
+            });
+
+            $(".txt-data").on("keydown", function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    $(this).blur();
+                }
+            });
+        } );
+    </script>
+}
+@section styles {
+    <link href="@($"/Content/css/wordsearchgame/jquery.wordsearchgame-{@Model.HiddenWordGame.pkHiddenWordGameID}.css")" rel="stylesheet" type="text/css" />
+}

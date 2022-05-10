@@ -1,0 +1,95 @@
+
+/* Style for grid cells */
+.rf-tgrid {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 1px;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    border: 2px solid #000000;
+    width: 60px;
+    height: 60px;
+}
+
+.rf-main-container {
+    background-color: #ad171a; /*main background*/
+    padding: 10px;
+    padding-bottom: 340px;
+    padding-left: 50px;
+    background-position-y: bottom;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-image: url("../../images/games/armenian/ed22/hid1/bg.png");
+    /*border: 1px solid red;*/
+}
+
+/* Style for the grid */
+.rf-tablestyle {
+    border: 2px solid;
+    background-color: #fffcec; /*grid background*/
+    cursor: pointer;
+    color: #231f20;
+}
+
+/* Style for the div containing the grid */
+#rf-searchgamecontainer {
+    float: left;
+    padding-right: 15px; 
+}
+
+/* Style for the div containing the word list */
+#rf-wordcontainer {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    float: left;
+    padding-right: 50px;
+    padding-left: 50px;
+    cursor: default;
+    background-color: #ad171a;
+    color: #000;
+    font-weight: bold;
+    border: 0 solid;
+    border-color: #6d0e0f;
+    cursor: pointer;
+    padding-top: 130px;
+    padding-bottom: 70px;
+    margin: 5px;
+    background-position-y: bottom;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-image: url("../../images/games/armenian/ed22/hid1/bg2.png");
+}
+
+/* Style for the words that have been found */
+.rf-foundword {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    text-decoration: line-through;
+    color: #b6d63f;
+    font-style: italic;
+    background-color: #029d49;
+}
+
+#rf-tablegrid .rf-armed {
+/*	background: lightcyan;*/
+}
+
+#rf-tablegrid .rf-highlight {
+    background: red;
+}
+
+
+#rf-tablegrid .rf-glowing {
+	background: #e2007a;
+        
+}
+
+#rf-tablegrid .rf-selected {
+    background: #f37436;
+}
+
+/* style for words that didn't make it on the grid */
+.rf-pfalse {
+    color: gray;
+    visibility: hidden; 
+}

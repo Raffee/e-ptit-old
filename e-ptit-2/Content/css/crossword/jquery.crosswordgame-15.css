@@ -1,0 +1,128 @@
+
+/* Style for grid cells */
+.rf-tgrid {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 1px;
+    padding: 10px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.rf-main-container {
+    padding-left: 55px;
+    padding-top: 6px;
+    /*padding-bottom: 400px;*/
+    background-image: url("../../images/games/crossword/ed5/gm1bg.png");
+    background-color: #a6dbd5;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: left;
+    text-align: center;
+}
+
+/* Style for the div containing the grid */
+#rf-searchgamecontainer {
+    float: left;
+    padding-right: 30px;
+    padding-left: 60px;
+}
+
+/* Style for the div containing the word list */
+#rf-wordcontainer {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    float: left;
+    padding-right: 30px;
+    padding-left: 30px;
+    cursor: default;
+    margin: 1em 1em 1em 0;
+    background-color: #0c2d69;
+    color: white;
+    font-weight: bold;
+    border: 2px solid;
+    border-color: #0c2d69;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Style for the words that have been found */
+.rf-foundword {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    text-decoration: line-through;
+    color: red;
+    font-style: italic;
+    background-color: #0c2d69;
+}
+
+#rf-tablegrid .rf-glowing {
+    background: greenyellow;
+}
+
+#rf-tablegrid .rf-selected {
+    background: #0c2d69;
+}
+
+/* style for words that didn't make it on the grid */
+.rf-pfalse {
+    color: gray;
+    visibility: hidden;
+}
+
+.td-basic {
+    height: 40px !important;
+    width: 30px !important;
+}
+
+.undefined {
+    height: 40px !important;
+    width: 30px !important;
+}
+
+table.crossword td {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #f0537c;
+    color: #0c2d69;
+    font-size: 30px;
+    background-color: #f8abad;
+}
+
+table.crossword input {
+    border: 0;
+    width: 40px;
+    font-size: 30px;
+    color: #0c2d69;
+    background-color: #f8abad;
+    text-align: center;
+}
+
+table.crossword {
+    border: 0;
+}
+
+strikeout {
+    text-decoration: line-through;
+}
+
+table.crossword td.black {
+    background-color: black;
+}
+
+table.crossword td.invisi {
+    border: 0;
+    color: red;
+    visibility: hidden;
+}
+
+ul.hints li {
+    font-size: 25px;
+    color: #0c2d69;
+    text-align: left;
+}

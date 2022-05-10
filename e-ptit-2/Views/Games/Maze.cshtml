@@ -1,0 +1,236 @@
+﻿@using Newtonsoft.Json
+
+@model e_ptit_2.Models.Maze
+
+<script type="text/javascript">
+
+    var data = @Html.Raw(JsonConvert.SerializeObject(this.Model));
+
+</script>
+
+<div>
+
+    <div id="sound">
+    </div>
+
+    <div id="fireworks-template">
+        <div id="fw" class="firework"></div>
+        <div id="fp" class="fireworkParticle">
+            <img src="../../Content/fireworks/image/particles.gif" alt="" />
+        </div>
+    </div>
+
+    <div id="fireContainer"></div>
+</div>
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+            <h2>@Model.Title.ToUpperInvariant()</h2>
+            <br />
+            <h3>@Model.Description</h3>
+        </div>
+    </div>
+    <br />
+    <div class="row" style="background-color: @ViewBag.BackgroundColor;">
+        <div class="row rf-main-container">
+            <table style="width: 100%; border: 0">
+                <tr>
+                    <td style="width: 50%">&nbsp;</td>
+                    <td>
+                        <canvas width="@Model.Width" height="@Model.Height" style="text-align: center; align-content: center;" id="mazecanvas">Can't load the maze game, because your browser doesn't support HTML5.</canvas>
+                        <noscript>JavaScript is not enabled. To play the game, you should enable it.</noscript>
+                    </td>
+                    <td style="width: 50%">&nbsp;</td>
+                </tr>
+            </table>
+            <br />
+        </div>
+    </div>
+</div>
+
+<audio id="myAudio">
+    <source src="../../Content/audio/correct.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioApplause">
+    <source src="../../Content/audio/win.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="moveAudio">
+    <source src="../../Content/audio/maze_move.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioError">
+    <source src="../../Content/audio/incorrect.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioSanta">
+    <source src="../../Content/audio/tadaa1.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+
+@section scripts {
+    <script type="text/javascript" src="../../Content/js/jquery-ui.js"></script>
+
+    <script>
+        if (typeof (soundManagerInit) != 'undefined') soundManagerInit();
+
+        function DoFireworks() {
+            var r = 4 + parseInt(Math.random() * 16);
+            for (var i = r; i--;) {
+                setTimeout('createFirework(50,200,4,null,null,null,null,null,Math.random()>0.5,true)', (i + 1) * (1 + parseInt(Math.random() * 1000)));
+            }
+            return false;
+        }
+
+        function playSound() {
+            var vid = document.getElementById("myAudio");
+            vid.play();
+        }
+
+        function playApplause() {
+            var vid = document.getElementById("audioApplause");
+            vid.play();
+            var hohoho = document.getElementById("audioSanta");
+            hohoho.play();
+        }
+
+        function playMoveSound() {
+            var vid = document.getElementById("moveAudio");
+            vid.play();
+        }
+
+        function playErrorSound() {
+            var vid = document.getElementById("audioError");
+            vid.play();
+        }
+
+        // 425 (X), 3 (Y) RECTANGLE
+        // 542 (center X), 122 (center Y) CIRCLE
+        var canvas = document.getElementById("mazecanvas");
+        var context = canvas.getContext("2d");
+        var currRectX = @Model.startX;
+        var currRectY = @Model.startY;
+        var mazeWidth = 800;
+        var mazeHeight = 800;
+        var intervalVar;
+
+        function drawMazeAndRectangle(rectX, rectY) {
+            //makeWhite(0, 0, canvas.width, canvas.height);
+            var mazeImg = new Image();
+            mazeImg.onload = function () {
+                context.drawImage(mazeImg, 0, 0);
+                drawRectangle(rectX, rectY, "#0000FF");
+                context.beginPath();
+                context.arc(@Model.endX, @Model.endY, 7, 0, 2 * Math.PI, false);
+                context.closePath();
+                context.fillStyle = '#FF0000';
+                context.fill();
+            };
+            mazeImg.src = "../../Content/images/games/maze/@Model.imgPath";
+        }
+
+        function drawRectangle(x, y, style) {
+            makeWhite(currRectX, currRectY, 10, 10);
+            currRectX = x;
+            currRectY = y;
+            context.beginPath();
+            context.rect(x, y, 10, 10);
+            context.closePath();
+            context.fillStyle = style;
+            context.fill();
+        }
+
+        function moveRect(e) {
+            var newX;
+            var newY;
+            var movingAllowed;
+            e = e || window.event;
+            switch (e.keyCode) {
+                case 38:   // arrow up key
+                case 87: // W key
+                    newX = currRectX;
+                    newY = currRectY - 3;
+                    e.preventDefault();
+                    break;
+                case 37: // arrow left key
+                case 65: // A key
+                    newX = currRectX - 3;
+                    newY = currRectY;
+                    e.preventDefault();
+                    break;
+                case 40: // arrow down key
+                case 83: // S key
+                    newX = currRectX;
+                    newY = currRectY + 3;
+                    e.preventDefault();
+                    break;
+                case 39: // arrow right key
+                case 68: // D key
+                    newX = currRectX + 3;
+                    newY = currRectY;
+                    e.preventDefault();
+                    break;
+            }
+            movingAllowed = canMoveTo(newX, newY);
+            if (movingAllowed === 1) {      // 1 means 'the rectangle can move'
+                drawRectangle(newX, newY, "#0000FF");
+                currRectX = newX;
+                currRectY = newY;
+                playMoveSound();
+            }
+            else if (movingAllowed === 2) { // 2 means 'the rectangle reached the end point'
+                clearInterval(intervalVar);
+                window.removeEventListener("keydown", moveRect, true);
+                playSound();
+                playApplause();
+                DoFireworks();
+            }
+            else
+                playErrorSound();
+        }
+
+        function canMoveTo(destX, destY) {
+            debugger;
+            var imgData = context.getImageData(destX, destY, 10, 10);
+            var data = imgData.data;
+            var lineR = @Model.lineColor1;
+            var lineG = @Model.lineColor2;
+            var lineB = @Model.lineColor3;
+            var canMove = 1; // 1 means: the rectangle can move
+            if (destX >= 0 && destX <= mazeWidth - 10 && destY >= 0 && destY <= mazeHeight - 10) {
+                for (var i = 0; i < 4 * 10 * 10; i += 4) {
+                    if (data[i] === lineR && data[i + 1] === lineG && data[i + 2] === lineB)
+                    {
+                        canMove = 0; // 0 means: the rectangle can't move
+                        break;
+                    }
+                    else if (data[i] === 255 && data[i + 1] === 0 && data[i + 2] === 0) { // #FF0000
+                        canMove = 2; // 2 means: the end point is reached
+                        break;
+                    }
+                }
+            }
+            else {
+                canMove = 0;
+            }
+            return canMove;
+        }
+
+        function makeWhite(x, y, w, h) {
+            context.beginPath();
+            context.rect(x, y, w, h);
+            context.closePath();
+            context.fillStyle = "white";
+            context.fill();
+        }
+
+        debugger;
+        drawMazeAndRectangle(currRectX, currRectY);
+        window.addEventListener("keydown", moveRect, true);
+    </script>
+}
+@section styles {
+    <link href="@($"/Content/css/jquery.pyramid-1.css")" rel="stylesheet" type="text/css" />
+}

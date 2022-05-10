@@ -1,0 +1,31 @@
+﻿
+@model IEnumerable<e_ptit_2.Models.GameViewModel>
+<div class="container">
+    <h1 class="entry-title  text-center"><img src="~/Content/images/heading-4.png" style="max-width:232px; height:auto;" /></h1>
+    @foreach (e_ptit_2.Models.GameViewModel group in Model)
+    {
+        <div class="col-3">
+            <div class="box">
+                <div class="display-table">
+                    <h3 class="vertical-center">@group.Title.ToUpperInvariant()</h3>
+                </div>
+                <img style="height:175px;" src="~/Content/images/games/icons/@group.LargeIcon" />
+                @Html.ActionLink(
+    linkText: "Խաղալ",
+    actionName: "Play",
+    controllerName: $"{group.GameMenuType}Games",
+    routeValues: new
+    {
+        Id = group.Id,
+        TID = group.GameTypeId
+    },
+    htmlAttributes: new
+    {
+        @class = "fly-btn"
+    }
+)
+            </div>
+        </div>
+    }
+    <div class="clr"></div>
+</div>

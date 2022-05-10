@@ -1,0 +1,300 @@
+
+/* Style for grid cells */
+.rf-tgrid {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 1px;
+    padding: 10px;
+    /*    border: 1px solid bisque;*/
+    vertical-align: middle;
+    text-align: center;
+}
+
+.rf-main-container {
+    padding: 80px;
+    padding-bottom: 300px;
+    background-color: #90d5df;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: left;
+    background-image: url("../../images/games/crossword/ed21/gm1/bg.png");
+}
+
+/* Style for the grid */
+.rf-tablestyle {
+    /*border: 2px solid;
+    border-color: gold;
+    background-color: #c2d122;
+    cursor: pointer;
+    color: black;*/
+}
+
+/* Style for the div containing the grid */
+#rf-searchgamecontainer {
+    float: left;
+    padding-right: 90px;
+}
+
+/* Style for the div containing the word list */
+#rf-wordcontainer {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    float: left;
+    padding-right: 50px;
+    padding-left: 30px;
+    cursor: default;
+    /*margin : 1em 1em 1em 0;*/
+    background-color: #fff;
+    color: black;
+    font-weight: bold;
+    border: 4px solid;
+    border-color: #ad4c1e;
+}
+
+    #rf-wordcontainer ul li {
+        color: black;
+        text-align: left;
+        font-size: 15px;
+    }
+
+/* style for words that didn't make it on the grid */
+.rf-pfalse {
+    color: gray;
+    visibility: hidden;
+}
+
+.td-basic {
+    height: 50px !important;
+    width: 50px !important;
+}
+
+strikeout {
+    text-decoration: line-through;
+}
+
+table.crossword td {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #2b52a3;
+    color: #2b52a3;
+    font-size: 30px;
+    background-color: white;
+}
+
+    table.crossword td.special {
+        background-color: #90d5df !important;
+        border: 1px solid #90d5df !important;
+        width: 50px !important;
+        height: 50px !important;
+        color: black !important;
+    }
+
+    table.crossword td.special2 {
+        background-color: #2b52a3 !important;
+        border: 1px solid #2b52a3 !important;
+        width: 50px !important;
+        height: 50px !important;
+        color: black !important;
+    }
+
+table.crossword input {
+    border: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: #2b52a3;
+    background-color: white;
+    text-align: center;
+}
+
+.one {
+    background-image: url("../../images/games/crossword/numbers/black/one10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.two {
+    background-image: url("../../images/games/crossword/numbers/black/two10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.three {
+    background-image: url("../../images/games/crossword/numbers/black/three10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.four {
+    background-image: url("../../images/games/crossword/numbers/black/four10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.five {
+    background-image: url("../../images/games/crossword/numbers/black/five10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.six {
+    background-image: url("../../images/games/crossword/numbers/black/six10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.seven {
+    background-image: url("../../images/games/crossword/numbers/black/seven10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.eight {
+    background-image: url("../../images/games/crossword/numbers/black/eight10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.nine {
+    background-image: url("../../images/games/crossword/numbers/black/nine10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.ten {
+    background-image: url("../../images/games/crossword/numbers/black/ten10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.eleven {
+    background-image: url("../../images/games/crossword/numbers/black/eleven10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.twelve {
+    background-image: url("../../images/games/crossword/numbers/black/twelve10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.thirteen {
+    background-image: url("../../images/games/crossword/numbers/black/thirteen10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.fourteen {
+    background-image: url("../../images/games/crossword/numbers/black/fourteen10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.fifteen {
+    background-image: url("../../images/games/crossword/numbers/black/fifteen10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.sixteen {
+    background-image: url("../../images/games/crossword/numbers/black/sixteen10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.seventeen {
+    background-image: url("../../images/games/crossword/numbers/black/seventeen10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.eighteen {
+    background-image: url("../../images/games/crossword/numbers/black/eighteen10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.nineteen {
+    background-image: url("../../images/games/crossword/numbers/black/nineteen10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.twenty {
+    background-image: url("../../images/games/crossword/numbers/black/twenty10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.twentyone {
+    background-image: url("../../images/games/crossword/numbers/black/twentyone10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.twentytwo {
+    background-image: url("../../images/games/crossword/numbers/black/twentytwo10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.twentythree {
+    background-image: url("../../images/games/crossword/numbers/black/twentythree10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}
+
+.twentyfour {
+    background-image: url("../../images/games/crossword/numbers/black/twentyfour10.png");
+    background-position-x: 0;
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    padding: 10px;
+}

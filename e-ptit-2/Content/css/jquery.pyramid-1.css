@@ -1,0 +1,82 @@
+
+.rf-title {
+    color: #f6f055;
+}
+
+.rf-description {
+    color: #a1e254;
+}
+
+/* Style for grid cells */
+.rf-tgrid {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 1px;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+table.crossword td {
+    width: 80px !important;
+    height: 80px !important;
+    border: 2px solid #1c71b9;
+    font-size: 30px;
+    color: black;
+    background-image: url(../../Content/images/games/other/math/ed5/pyramid/td-bg.png);
+}
+
+h3, h4 {
+    color: black;
+}
+
+.rf-main-container {
+    padding-top: 6px;
+    /*background-color: #0c1f3f;*/
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position: bottom;
+    text-align: center;
+}
+
+/* Style for the grid */
+
+/* Style for the div containing the grid */
+#rf-searchgamecontainer {
+    float: left;
+    padding-right: 50px;
+}
+
+/* Style for the div containing the word list */
+#rf-wordcontainer {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    float: left;
+    padding-right: 50px;
+    cursor: default;
+    margin: 1em 1em 1em 0;
+    background-color: #0c2d69;
+    color: white;
+    font-weight: bold;
+    border: 2px solid;
+    border-color: #0c2d69;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+table.crossword input {
+    border: 0;
+    width: 50px;
+    font-size: 30px;
+    color: #0c2d69;
+    background-color: white;
+    text-align: center;
+}

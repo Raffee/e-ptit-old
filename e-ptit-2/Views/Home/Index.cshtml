@@ -1,0 +1,38 @@
+﻿@model e_ptit_2.Models.HomePageDTO
+@{
+    ViewBag.Title = "Home Page";
+    ViewBag.PageType = "HomePage";
+}
+<style type="text/css">
+    .bs-example {
+        margin: 150px 50px;
+    }
+
+    .popover {
+        border: 1px dotted red;
+    }
+
+    .popover-content {
+        background-color: coral;
+        color: #FFFFFF;
+    }
+</style><script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            placement: 'top',
+            trigger: 'hover'
+        });
+    });
+</script>
+<section class="section">
+    @Html.Partial("~/Views/Stories/StoriesRotator.cshtml", Model.Stories)
+</section>
+<section class="section" style="background:url(Content/images/language-bg.jpg) no-repeat center center; background-size:cover;">
+    @Html.Partial("~/Views/LanguageGames/Rotator.cshtml", Model.LanguageGames)
+</section>
+<section class="section">
+    @Html.Partial("~/Views/Fables/Rotator.cshtml", Model.Proverbs)
+</section>
+<section class="section add-reponsive-padding" style="background:url(Content/images/section-4-bg.jpg) no-repeat center center; background-size:cover;">
+    @Html.Partial("~/Views/Shared/OtherGamesRotator.cshtml", Model.OtherGames)
+</section>

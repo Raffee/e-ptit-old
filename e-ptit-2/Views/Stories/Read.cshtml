@@ -1,0 +1,55 @@
+﻿
+@model e_ptit_2.Models.StoryViewModel
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            placement: 'top',
+            trigger: 'hover'
+        });
+    });
+</script>
+<style type="text/css">
+    .bs-example {
+        margin: 150px 50px;
+    }
+
+    .popover {
+        border: 1px dotted red;
+    }
+
+    .popover-content {
+        background-color: coral;
+        color: #FFFFFF;
+    }
+</style>
+
+
+<div class="col-8 padding-right-40 story-content">
+    <h3 class="entry-title-blue">@Model.Story.title</h3>
+    @foreach (var itm in Model.ContentList)
+    {
+        if (itm.ImageName != null && !itm.ImageName.Equals("noImage.png", StringComparison.OrdinalIgnoreCase))
+        {
+            <img src="~/Content/Images/Stories/@itm.ImageName" class="responsive margin-bottom-20" />
+        }
+        <p>
+            @Html.Raw(itm.pageContent)
+        </p>
+    }
+</div>
+<div class="col-4">
+    <ul class="sidebar-nav">
+        @foreach (var story in Model.RelatedStories)
+        {
+            <li style="padding-bottom: 10px;">
+                @Html.ActionLink(story.title.ToUpperInvariant(), "Read", new { id = story.pkStoryId })
+                <div class="img-wrp">
+                    <img src="@Url.Content("~/Content/images/Stories/" + @Html.ValueFor(modelItem => story.ImageName))"  />
+                </div>
+            </li>
+        }
+    </ul>
+</div>

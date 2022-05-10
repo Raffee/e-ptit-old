@@ -1,0 +1,196 @@
+﻿@using Newtonsoft.Json
+@model e_ptit_2.Models.MatchingViewModel
+
+<div>
+    <div id="sound">
+    </div>
+
+    <div id="fireworks-template">
+        <div id="fw" class="firework"></div>
+        <div id="fp" class="fireworkParticle">
+            <img src="../../Content/fireworks/image/particles.gif" alt="" />
+        </div>
+    </div>
+
+    <div id="fireContainer"></div>
+</div>
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+        <h2>@Model.Game.Title.ToUpperInvariant()</h2>
+        <br />
+        <h3>@Model.Game.Description</h3>
+    </div>
+</div>
+<br />
+@{
+    if (!string.IsNullOrWhiteSpace(Model.Game.MainHeaderStyle))
+    {
+        <div class="row" style="@Model.Game.MainHeaderStyle"></div>
+    }
+}
+        <div class="row" style="position:relative; @Model.Game.MainContainerStyle">
+            <img src="../../Content/images/games/armenian/ed16/connect/connectdots1.png" usemap="#image-map">
+            <map name="image-map" data-id="" data-previous-id="">
+                <area id="a1" target="" alt="ա" title="ա" onclick="LetterClicked(this)" coords="377,470,10" shape="circle" data-id="1" data-previous-id="0">
+                <area id="a2" target="" alt="բ" title="բ" onclick="LetterClicked(this)" coords="407,428,10" shape="circle" data-id="2" data-previous-id="1">
+                <area id="a3" target="" alt="գ" title="գ" onclick="LetterClicked(this)" coords="378,388,10" shape="circle" data-id="3" data-previous-id="2">
+                <area id="a4" target="" alt="դ" title="դ" onclick="LetterClicked(this)" coords="393,331,10" shape="circle" data-id="4" data-previous-id="3">
+                <area id="a5" target="" alt="ե" title="ե" onclick="LetterClicked(this)" coords="350,299,10" shape="circle" data-id="5" data-previous-id="4">
+                <area id="a6" target="" alt="զ" title="զ" onclick="LetterClicked(this)" coords="359,262,10" shape="circle" data-id="6" data-previous-id="5">
+                <area id="a7" target="" alt="է" title="է" onclick="LetterClicked(this)" coords="441,331,10" shape="circle" data-id="7" data-previous-id="6">
+                <area id="a8" target="" alt="ը" title="ը" onclick="LetterClicked(this)" coords="444,362,10" shape="circle" data-id="8" data-previous-id="7">
+                <area id="a9" target="" alt="թ" title="թ" onclick="LetterClicked(this)" coords="467,356,10" shape="circle" data-id="9" data-previous-id="8">
+                <area id="a10" target="" alt="ժ" title="ժ" onclick="LetterClicked(this)" coords="491,399,10" shape="circle" data-id="10" data-previous-id="9">
+                <area id="a11" target="" alt="ի" title="ի" onclick="LetterClicked(this)" coords="511,354,10" shape="circle" data-id="11" data-previous-id="10">
+                <area id="a12" target="" alt="լ" title="լ" onclick="LetterClicked(this)" coords="501,323,10" shape="circle" data-id="12" data-previous-id="11">
+                <area id="a13" target="" alt="խ" title="խ" onclick="LetterClicked(this)" coords="512,289,10" shape="circle" data-id="13" data-previous-id="12">
+                <area id="a14" target="" alt="ծ" title="ծ" onclick="LetterClicked(this)" coords="479,285,10" shape="circle" data-id="14" data-previous-id="13">
+                <area id="a15" target="" alt="կ" title="կ" onclick="LetterClicked(this)" coords="462,231,10" shape="circle" data-id="15" data-previous-id="14">
+                <area id="a16" target="" alt="հ" title="հ" onclick="LetterClicked(this)" coords="300,159,10" shape="circle" data-id="16" data-previous-id="15">
+                <area id="a17" target="" alt="ձ" title="ձ" onclick="LetterClicked(this)" coords="298,120,10" shape="circle" data-id="17" data-previous-id="16">
+                <area id="a18" target="" alt="ղ" title="ղ" onclick="LetterClicked(this)" coords="245,103,10" shape="circle" data-id="18" data-previous-id="17">
+                <area id="a19" target="" alt="ճ" title="ճ" onclick="LetterClicked(this)" coords="252,47,10" shape="circle" data-id="19" data-previous-id="18">
+                <area id="a20" target="" alt="մ" title="մ" onclick="LetterClicked(this)" coords="163,37,10" shape="circle" data-id="20" data-previous-id="19">
+                <area id="a21" target="" alt="յ" title="յ" onclick="LetterClicked(this)" coords="101,157,10" shape="circle" data-id="21" data-previous-id="20">
+                <area id="a22" target="" alt="ն" title="ն" onclick="LetterClicked(this)" coords="66,174,10" shape="circle" data-id="22" data-previous-id="21">
+                <area id="a23" target="" alt="շ" title="շ" onclick="LetterClicked(this)" coords="73,205,10" shape="circle" data-id="23" data-previous-id="22">
+                <area id="a24" target="" alt="ո" title="ո" onclick="LetterClicked(this)" coords="65,253,10" shape="circle" data-id="24" data-previous-id="23">
+                <area id="a25" target="" alt="չ" title="չ" onclick="LetterClicked(this)" coords="94,278,10" shape="circle" data-id="25" data-previous-id="24">
+                <area id="a26" target="" alt="պ" title="պ" onclick="LetterClicked(this)" coords="42,392,10" shape="circle" data-id="26" data-previous-id="25">
+                <area id="a27" target="" alt="ջ" title="ջ" onclick="LetterClicked(this)" coords="42,453,10" shape="circle" data-id="27" data-previous-id="26">
+                <area id="a28" target="" alt="ռ" title="ռ" onclick="LetterClicked(this)" coords="10,457,10" shape="circle" data-id="28" data-previous-id="27">
+                <area id="a29" target="" alt="ս" title="ս" onclick="LetterClicked(this)" coords="80,537,10" shape="circle" data-id="29" data-previous-id="28">
+                <area id="a30" target="" alt="վ" title="վ" onclick="LetterClicked(this)" coords="87,488,10" shape="circle" data-id="30" data-previous-id="29">
+                <area id="a31" target="" alt="տ" title="տ" onclick="LetterClicked(this)" coords="124,474,10" shape="circle" data-id="31" data-previous-id="30">
+                <area id="a32" target="" alt="ր" title="ր" onclick="LetterClicked(this)" coords="92,453,10" shape="circle" data-id="32" data-previous-id="31">
+                <area id="a33" target="" alt="ց" title="ց" onclick="LetterClicked(this)" coords="163,306,10" shape="circle" data-id="33" data-previous-id="32">
+                <area id="a34" target="" alt="ւ" title="ւ" onclick="LetterClicked(this)" coords="188,330,10" shape="circle" data-id="34" data-previous-id="33">
+                <area id="a35" target="" alt="փ" title="փ" onclick="LetterClicked(this)" coords="231,343,10" shape="circle" data-id="35" data-previous-id="34">
+                <area id="a36" target="" alt="ք" title="ք" onclick="LetterClicked(this)" coords="220,385,10" shape="circle" data-id="36" data-previous-id="35">
+                <area id="a37" target="" alt="օ" title="օ" onclick="LetterClicked(this)" coords="255,410,10" shape="circle" data-id="37" data-previous-id="36">
+                <area id="a38" target="" alt="ֆ" title="ֆ" onclick="LetterClicked(this)" coords="238,445,10" shape="circle" data-id="38" data-previous-id="37">
+            </map>
+        </div>
+
+<audio id="myAudio">
+    <source src="../../Content/audio/@String.Format("{0}.mp3", Model.SoundFile)" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioApplause">
+    <source src="../../Content/audio/win.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioSanta">
+    <source src="../../Content/audio/tadaa1.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioError">
+    <source src="../../Content/audio/incorrect.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+
+@section scripts {
+    <script type="text/javascript" src="../../Content/js/jquery-ui.js"></script>
+
+    <script>
+
+        if (typeof (soundManagerInit) != 'undefined') soundManagerInit();
+
+        function DoFireworks() {
+            var r = 4 + parseInt(Math.random() * 16);
+            for (var i = r; i--;) {
+                setTimeout('createFirework(50,200,4,null,null,null,null,null,Math.random()>0.5,true)', (i + 1) * (1 + parseInt(Math.random() * 1000)));
+            }
+            return false;
+        }
+
+        function playSound() {
+            var vid = document.getElementById("myAudio");
+            vid.play();
+        }
+
+        function playApplause() {
+            var vid = document.getElementById("audioApplause");
+            var hohoho = document.getElementById("audioSanta");
+            hohoho.play();
+            vid.play();
+        }
+
+        function playErrorSound() {
+            var vid = document.getElementById("audioError");
+            vid.play();
+        }
+
+        var soundFileName = '<%= soundFileName%>';
+
+        var currentLetterIndex = 0;
+
+        function LetterClicked(e) {
+            debugger;
+            var letterArea = $(e);
+            var correctPreviousIndex = e.attributes["data-previous-id"].value;
+
+            if (correctPreviousIndex == currentLetterIndex) {
+                var clickedLetterIndex = e.attributes["data-id"].value;
+                currentLetterIndex = clickedLetterIndex;
+
+                var previousElementId = "a" + correctPreviousIndex;
+                var previousE = document.getElementById(previousElementId);
+
+                if(correctPreviousIndex > 0)
+                    connect(e, previousE, "red", 1);
+            }
+        }
+
+        function connect(div1, div2, color, thickness) {
+            debugger;
+            var off1 = getOffset(div1);
+            var off2 = getOffset(div2);
+            // bottom right
+            var x1 = off1.left + off1.width;
+            var y1 = off1.top + (off1.height / 2);
+            // top left
+            var x2 = off2.left;
+            var y2 = off2.top + (off2.height / 2);
+            // distance
+            var length = Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+            // center
+            var cx = ((x1 + x2) / 2) - (length / 2);
+            var cy = ((y1 + y2) / 2) - (thickness / 2);
+            // angle
+            var angle = Math.atan2((y1 - y2), (x1 - x2)) * (180 / Math.PI);
+            // make hr
+            var htmlLine = "<div style='z-index:1000; padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
+            //
+            alert(htmlLine);
+            document.body.innerHTML += htmlLine;
+        }
+
+        function getOffset(el) {
+            var rect = el.getBoundingClientRect();
+            return {
+                left: rect.left + window.pageXOffset,
+                top: rect.top + window.pageYOffset,
+                width: rect.width || el.offsetWidth,
+                height: rect.height || el.offsetHeight
+            };
+        }
+
+    </script>
+}
+@section styles
+{
+    <style>
+        .bordered {
+            border: 1px solid grey;
+        }
+
+        .selected {
+            border: 2px solid red;
+        }
+
+        div1 {
+            border: 1px dashed green;
+        }
+    </style>
+}

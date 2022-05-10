@@ -1,0 +1,98 @@
+
+/* Style for grid cells */
+.rf-tgrid {
+    
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 1px;
+    padding: 10px;
+/*    border: 1px solid bisque;*/
+    vertical-align: middle;
+    text-align: center;
+
+    border: 1px solid #ffd500;
+    width: 50px;
+    height: 50px;
+}
+
+.rf-main-container
+{
+    background-color: #fff; /*main background*/
+    padding: 120px;
+    padding-bottom: 50px;
+    padding-left: 150px;
+    background-image:url("../../images/games/armenian/ed8/hid/bg.png");
+    background-position-y:top;
+    background-position-x:left;
+    background-repeat:no-repeat;
+    /*border: 1px solid red;*/
+}
+
+/* Style for the grid */
+.rf-tablestyle {
+    border: 2px solid;
+    border-color: #ffd500;
+    background-color: #f37e7c; /*grid background*/
+    cursor: pointer;
+    color: #000000;
+
+}
+
+/* Style for the div containing the grid */
+#rf-searchgamecontainer {
+    float: left;
+    padding-right: 50px; 
+}
+
+/* Style for the div containing the word list */
+#rf-wordcontainer {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    float :left;
+    padding-right: 50px;  
+    padding-left: 30px;
+    cursor: default;
+    background-color: #6fc7af;
+    color: #fefcfc;
+    font-weight: bold;
+    border: 0px solid;
+    border-color: #470e15;	
+    
+	cursor: pointer;
+    
+    padding: 30px;
+    margin: 5px;	
+}
+
+/* Style for the words that have been found */
+.rf-foundword {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+	text-decoration : line-through;
+	color : red;
+	font-style : italic;
+    background-color: gold;
+}
+
+#rf-tablegrid .rf-armed {
+/*	background: lightcyan;*/
+}
+
+#rf-tablegrid .rf-highlight {
+    background: red;
+}
+
+
+#rf-tablegrid .rf-glowing {
+	background: greenyellow;
+        
+}
+
+#rf-tablegrid .rf-selected {
+	background: #9848c1;
+}
+
+/* style for words that didn't make it on the grid */
+.rf-pfalse {
+    color: gray;
+    visibility: hidden; 
+}

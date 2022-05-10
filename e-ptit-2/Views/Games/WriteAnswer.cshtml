@@ -1,0 +1,193 @@
+﻿@using Newtonsoft.Json
+
+@model e_ptit_2.Models.WriteAnswerViewModel
+@{
+    ViewBag.Title = "ԿՐՆԱ՞Ս ԳՈՒՇԱԿԵԼ";
+}
+
+<div>
+    <div id="sound">
+    </div>
+
+    <div id="fireworks-template">
+        <div id="fw" class="firework"></div>
+        <div id="fp" class="fireworkParticle">
+            <img src="../../Content/fireworks/image/particles.gif" alt="" />
+        </div>
+    </div>
+
+    <div id="fireContainer"></div>
+</div>
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+        <h2>@Model.Title.ToUpperInvariant()</h2>
+        <br />
+        <h3>@Html.Raw(Model.Description)</h3>
+    </div>
+</div>
+<br />
+<div class="row" style="padding-left:30px;@Model.Style">
+    @foreach (var game in Model.Games)
+    {
+        <div class="items-per-row-@Model.ItemsPerRow">
+            <div class="row" id="divAnswers" style="position: relative;">
+                <div id="divQuestion" style="@String.Format(" background-image:url('../../Content/images/games/{0}'); {1}", game.ImageBG, game.QuestionStyle)">
+                    @{
+                        string width = "40";
+                        if (game.TextboxWidth.HasValue)
+                        {
+                            width = game.TextboxWidth.Value.ToString();
+                        }
+
+                        string inputStr = String.Format("<input id='txtInput{0}' class='ansText' type='text' style='width:{2}px; color:black;' onblur='showAnswer(this, \"{1}\", true);'" +
+                            " onfocus='VirtualKeyboard.attachInput(this)' data-answer='{1}' data-is-solved='false'/>",
+                            game.pkWriteAnswerGameId, game.AnswerText, width);
+                        string innerHTML = String.Format(game.QuestionHTML, inputStr);
+                    }
+                    @Html.Raw(innerHTML)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="#" id="lnkShowAnswer" class="btn-small btn-info small blue danger" onclick="javascript:swal('@e_ptit_2.Helpers.Constants.SHOW_ANSWER','@game.AnswerText');">@e_ptit_2.Helpers.Constants.SHOW_ANSWER</a>
+                </div>
+            </div>
+            <div id="divBottom" class="row" style="padding: 25px;">&nbsp;</div>
+        </div>
+    }
+</div>
+<input type="text" id="some-id-data" style="display: none;" />
+<div id="td"></div>
+
+<audio id="myAudio">
+    <source src="../../Content/audio/@String.Format("{0}.mp3", Model.SoundFile)" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="myAudio2">
+    <source src="../../Content/audio/Blop-Mark_DiAngelo-79054334.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioApplause">
+    <source src="../../Content/audio/win.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioSanta">
+    <source src="../../Content/audio/tadaa1.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioError">
+    <source src="../../Content/audio/incorrect.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+
+@section scripts {
+    <script type="text/javascript" src="../../Content/js/jquery-ui.js"></script>
+
+    <script>
+
+        if (typeof (soundManagerInit) != 'undefined') soundManagerInit();
+
+        function DoFireworks() {
+            var r = 4 + parseInt(Math.random() * 16);
+            for (var i = r; i--;) {
+                setTimeout('createFirework(50,200,4,null,null,null,null,null,Math.random()>0.5,true)', (i + 1) * (1 + parseInt(Math.random() * 1000)));
+            }
+            return false;
+        }
+
+        function playSound() {
+            var vid = document.getElementById("myAudio");
+            vid.play();
+        }
+
+        function playErrorSound() {
+            var vid = document.getElementById("audioError");
+            vid.play();
+        }
+
+        function playApplause() {
+            var vid = document.getElementById("audioApplause");
+            var hohoho = document.getElementById("audioSanta");
+            hohoho.play();
+            vid.play();
+        }
+
+        EM.addEventListener(window, 'domload', function () {
+            if ('@Model.ShowKeyboard' === 'True')
+                VirtualKeyboard.toggle('some-id-data', 'td');
+        });
+
+        $(".ansText").on("keydown", function (event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                $(this).blur();
+            }
+        });
+
+        $(".ansText").on("keyup", function (event) {
+            debugger;
+            if (event.keyCode == 13) {
+            }
+            else {
+                var txt = $(event.target);
+                var text = txt.val();
+                var answer = txt.data("answer").toString();
+                CheckAnswerWhileTyping(text, answer, txt);
+            }
+        });
+
+        $(".ansText").on("virtualKeyboardClick", function (event) {
+            debugger;
+            if (event.keyCode == 13) {
+            }
+            else {
+                var txt = $(event.target);
+                var text = txt.val();
+                var answer = txt.data("answer").toString();
+                CheckAnswerWhileTyping(text, answer, txt);
+            }
+        });
+
+        function CheckAnswerWhileTyping(text, answer, thisObj) {
+            if (thisObj.attr("data-is-solved") == "false" && text.toLowerCase() == answer.toLowerCase()) {
+                playSound();
+                document.getElementById(thisObj.attr('id')).style.borderColor = "green";
+                thisObj.attr("data-is-solved", "true");
+                checkIfCompleted();
+            }
+        }
+
+        function showAnswer(thisObj, correctAnswer, guessed) {
+            debugger;
+            if (thisObj.value && thisObj.value.length > 0 && $(thisObj).attr("data-is-solved") == 'false') {
+                if (thisObj.value.toLowerCase() == correctAnswer.toLowerCase()) {
+                    //divAnswer.show();
+                    if (guessed) {
+                        playSound();
+                        thisObj.style.borderColor = "green";
+                        $(thisObj).attr("data-is-solved", "true");
+                        checkIfCompleted();
+                    }
+                }
+                else {
+                    thisObj.value = "";
+                    thisObj.style.borderColor = "red";
+                    playErrorSound();
+                }
+            }
+        }
+
+        function checkIfCompleted() {
+            debugger;
+            var toSolve = $("input[data-is-solved='false']");
+            //alert(toSolve.length);
+            if (toSolve.length == 0) {
+                {
+                    DoFireworks();
+                    playApplause();
+                }
+            }
+        }
+
+    </script>
+}

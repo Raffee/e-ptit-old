@@ -1,0 +1,231 @@
+﻿@using Newtonsoft.Json
+
+@model e_ptit_2.Models.MatchingViewModel
+@{
+    ViewBag.Title = "Բուրգ";
+}
+
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+        <h2>@Model.Game.Title.ToUpperInvariant()</h2>
+        <br />
+        <h3>@Model.Game.Description</h3>
+    </div>
+</div>
+<br />
+<div class="row" style="padding-left: 30px;">
+
+    <div class="row" style="text-align: center;">
+        @foreach (var question in Model.Game.GetQuestions())
+        {
+            <div class="question label label-success items-per-row-@Model.Game.ItemsPerRowQ" onclick="qClicked(this, this.id);" data-q-id="@question.pkMatchGameQuestionID"
+                 style="@Model.Game.QuestionsStyle"
+                 id="@String.Format("divQ{0}", question.pkMatchGameQuestionID)">
+                @question.QuestionText
+            </div>
+        }
+    </div>
+</div>
+
+<div class="row" style="padding-left: 30px;">
+    <div class="row" style="text-align: center;">
+        @foreach (var answer in Model.Game.GetAnswers())
+        {
+            <div class="answer label items-per-row-@Model.Game.ItemsPerRowQ" data-a-id="@answer.fkQuestionId"
+                 style="@Model.Game.AnswersStyle" onclick="aClicked(this, this.id);"
+                 id="@String.Format("divA{0}", answer.fkQuestionId)" data-is-solved="false">
+                @Html.Raw(answer.AnswerHTML))
+            </div>
+        }
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+@{
+    if (!string.IsNullOrWhiteSpace(Model.Game.MainFooterStyle))
+    {
+        <div class="row" style="@Model.Game.MainFooterStyle"></div>
+    }
+}
+
+
+<audio id="myAudio">
+    <source src="../../Content/audio/@String.Format("{0}.mp3", Model.SoundFile)" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioApplause">
+    <source src="../../Content/audio/win.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioSanta">
+    <source src="../../Content/audio/tadaa1.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioError">
+    <source src="../../Content/audio/incorrect.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+
+@section scripts {
+    <script type="text/javascript" src="../../Content/js/jquery-ui.js"></script>
+
+    <script>
+
+        if (typeof (soundManagerInit) != 'undefined') soundManagerInit();
+
+        function DoFireworks() {
+            var r = 4 + parseInt(Math.random() * 16);
+            for (var i = r; i--;) {
+                setTimeout('createFirework(55,200,5,null,null,null,null,null,Math.random()>0.5,true)', (i + 1) * (1 + parseInt(Math.random() * 1000)));
+            }
+            return false;
+        }
+
+        function playSound() {
+            var vid = document.getElementById("myAudio");
+            vid.play();
+        }
+
+        function playApplause() {
+            var vid = document.getElementById("audioApplause");
+            var hohoho = document.getElementById("audioSanta");
+            hohoho.play();
+            vid.play();
+        }
+
+        function playErrorSound() {
+            var vid = document.getElementById("audioError");
+            vid.play();
+        }
+
+        var soundFileName = '<%= soundFileName%>';
+
+        var selectedQ;
+        var selectedA;
+
+        function qClicked(div, id) {
+            ClearQ();
+            selectedQ = div.attributes["data-q-id"].value;
+            var divQuestion = $('#divQ' + selectedQ);
+            var divAnswer = $('#divA' + selectedA);
+            divQuestion.addClass('selected');
+
+            if (selectedA == selectedQ) {
+                //alert('MATCH!');
+                var aDiv = document.getElementById('divA' + selectedA);
+                connect(div, aDiv, "#0F0", 5);
+                markFound($('#divQ' + selectedQ));
+                markFound($('#' + aDiv.id));
+                playSound();
+                $('#' + aDiv.id).attr("data-is-solved", "true");
+                checkIfCompleted();
+                selectedA = "";
+                selectedQ = "";
+            }
+            else if (selectedA) {
+                //alert("Nope, try again :(");
+
+                divQuestion.removeClass('selected');
+                divAnswer.removeClass('selected');
+                selectedA = "";
+                selectedQ = "";
+                playErrorSound();
+            }
+        }
+
+        function aClicked(div, id) {
+            ClearA();
+            selectedA = div.attributes["data-a-id"].value;
+            var divQuestion = $('#divQ' + selectedQ);
+            var divAnswer = $('#divA' + selectedA);
+            //divAnswer.addClass('selected');
+            if (selectedA == selectedQ) {
+                //alert('MATCH!');
+                var qDiv = document.getElementById('divQ' + selectedQ);
+                connect(qDiv, div, "#0F0", 5);
+                markFound($('#divQ' + selectedQ));
+                markFound($('#' + div.id));
+                playSound();
+                $('#' + div.id).attr("data-is-solved", "true");
+                checkIfCompleted();
+                selectedA = "";
+                selectedQ = "";
+            }
+            else if (selectedQ) {
+                //alert("Nope, try again :(");
+
+                divQuestion.removeClass('selected');
+                divAnswer.removeClass('selected');
+                selectedA = "";
+                selectedQ = "";
+                playErrorSound();
+            }
+        }
+
+        function markFound(myDiv) {
+            myDiv.css("opacity", "0.5")
+            //myDiv.css("border", "2px solid red");
+        }
+
+        function checkIfCompleted() {
+            var toSolve = $("div[data-is-solved='false']");
+            if (toSolve.length == 0) {
+                {
+                    DoFireworks();
+                    playApplause();
+                }
+            }
+        }
+
+        function ClearQ() {
+            $('#divQ' + selectedQ).removeClass('selected');
+        }
+
+        function ClearA() {
+            $('#divA' + selectedA).removeClass('selected');
+        }
+
+        function connect(div1, div2, color, thickness) {
+            var off1 = getOffset(div1);
+            var off2 = getOffset(div2);
+            // bottom right
+            var x1 = off1.left + (off1.width / 2);
+            var y1 = off1.top + off1.height;
+            // top left
+            var x2 = off2.left + (off2.width / 2);
+            var y2 = off2.top + (off2.height / 2);
+            // distance
+            var length = Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+            // center
+            var cx = ((x1 + x2) / 2) - (length / 2);
+            var cy = ((y1 + y2) / 2) - (thickness / 2);
+            // angle
+            var angle = Math.atan2((y1 - y2), (x1 - x2)) * (180 / Math.PI);
+            // make hr
+            var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
+            //
+            //alert(htmlLine);
+            document.body.innerHTML += htmlLine;
+        }
+
+        function getOffset(el) {
+            var rect = el.getBoundingClientRect();
+            return {
+                left: rect.left + window.pageXOffset,
+                top: rect.top + window.pageYOffset,
+                width: rect.width || el.offsetWidth,
+                height: rect.height || el.offsetHeight
+            };
+        }
+    </script>
+}
+@section styles
+{
+    <style>
+
+        .selected {
+            border: 0px solid red;
+            opacity: 0.75;
+        }
+    </style>
+}

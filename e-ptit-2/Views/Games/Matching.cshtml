@@ -1,0 +1,343 @@
+﻿@using Newtonsoft.Json
+@model e_ptit_2.Models.MatchingViewModel
+
+<div>
+    <div id="sound">
+    </div>
+
+    <div id="fireworks-template">
+        <div id="fw" class="firework"></div>
+        <div id="fp" class="fireworkParticle">
+            <img src="../../Content/fireworks/image/particles.gif" alt="" />
+        </div>
+    </div>
+
+    <div id="fireContainer"></div>
+</div>
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+        <h2>@Model.Game.Title.ToUpperInvariant()</h2>
+        <br />
+        <h3>@Model.Game.Description</h3>
+    </div>
+</div>
+<br />
+@{
+    if (!string.IsNullOrWhiteSpace(Model.Game.MainHeaderStyle))
+    {
+        <div class="row" style="@Model.Game.MainHeaderStyle"></div>
+    }
+}
+<div class="row" style="@Model.Game.MainContainerStyle">
+    <div class="col-md-4 col-sm-4" id="divQuestions" style="align-content:center;">
+        <table style="height: 500px; width:350px;" cellpadding="0" cellspacing="0" border="0">
+            @if (!String.IsNullOrEmpty(Model.Game.QuestionsHeader))
+            {
+                <tr>
+                    <td>
+                        <img src="@String.Format("../../Content/images/games/{0}", Model.Game.QuestionsHeader)" style="@Model.Game.QHStyle" />
+                    </td>
+                </tr>
+            }
+            <tr>
+                @{
+                    var style = "width: 100%; height: 100%;";
+                    if (!string.IsNullOrEmpty(Model.Game.QuestionTblBG))
+                    {
+                        style += string.Format("background-image:url('../../Content/images/games/{0}');", Model.Game.QuestionTblBG);
+                    }
+                    if (!string.IsNullOrWhiteSpace(Model.Game.QContainerStyle))
+                    {
+                        style += Model.Game.QContainerStyle;
+                    }
+                }
+                <td id="tdContainer" style="@style">
+                    <table style="width: 100%; height: 100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td></td>
+                        </tr>
+                        @foreach (var question in Model.Game.GetQuestions())
+                        {
+                            <tr>
+                                <td style="@Model.Game.QLStyle">&nbsp;</td>
+                                <td class="question" data-q-id="@question.pkMatchGameQuestionID" id="@String.Format("divQ{0}", question.pkMatchGameQuestionID)" onclick="qClicked(this, this.id);"
+                                    style="text-align:center; @String.Format("{0}background-image:url('../../Content/images/games/{1}');", Model.Game.QuestionsStyle,
+                                                                  String.IsNullOrEmpty(question.BackgroundImage) ? Model.Game.QuestionsBG : question.BackgroundImage)">
+                                    @question.QuestionText
+                                </td>
+                                <td style="@Model.Game.QRStyle">&nbsp;</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+            @if (!String.IsNullOrEmpty(Model.Game.QuestionsFooter))
+            {
+                <tr>
+                    <td>
+                        <img src="@String.Format("../../Content/images/games/{0}", Model.Game.QuestionsFooter)" style="@Model.Game.QFStyle" />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-md-4 col-sm-4"></div>
+    <div class="col-md-4 col-sm-4" id="divAnswers" style="align-content:center;">
+        <table style="height: 500px; width:350px;" cellpadding="0" cellspacing="0" border="0">
+            @if (!String.IsNullOrEmpty(Model.Game.AnswersHeader))
+            {
+                <tr>
+                    <td>
+                        <img src="@String.Format("../../Content/images/games/{0}", Model.Game.AnswersHeader)" style="@Model.Game.AHStyle" />
+                    </td>
+                </tr>
+            }
+            <tr>
+                @{
+                    var styleA = "width: 100%; height: 100%;";
+                    if (!string.IsNullOrEmpty(Model.Game.AnswerTblBG))
+                    {
+                        styleA += String.Format("background-image:url('../../Content/images/games/{0}');", Model.Game.AnswerTblBG);
+                    }
+                    if (!string.IsNullOrWhiteSpace(Model.Game.AContainerStyle))
+                    {
+                        styleA += Model.Game.AContainerStyle;
+                    }
+                }
+                <td id="tdAContainer" style="@styleA">
+
+                    <table style="width: 100%; height: 100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td></td>
+                        </tr>
+                        @foreach (var answer in Model.Game.GetAnswers())
+                        {
+                            <tr>
+                                <td style="@Model.Game.ALStyle">&nbsp;</td>
+                                <td class="answer" data-a-id="@answer.fkQuestionId" data-is-solved="false" id="@String.Format("divA{0}", answer.fkQuestionId)" onclick="aClicked(this, this.id);"
+                                    style="text-align:center; @String.Format("{0}background-image:url('../../Content/images/games/{1}');", Model.Game.AnswersStyle,
+                                                                  String.IsNullOrEmpty(answer.BackgroundImage) ? Model.Game.AnswersBG : answer.BackgroundImage)">
+                                    @answer.AnswerText
+                                </td>
+                                <td style="@Model.Game.ARStyle">&nbsp;</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+            @if (!String.IsNullOrEmpty(Model.Game.AnswersFooter))
+            {
+                <tr>
+                    <td>
+                        <img src="@String.Format("../../Content/images/games/{0}", Model.Game.AnswersFooter)" style="@Model.Game.AFStyle" />
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+@{
+    if (!string.IsNullOrWhiteSpace(Model.Game.MainFooterStyle))
+    {
+        <div class="row" style="@Model.Game.MainFooterStyle"></div>
+    }
+}
+
+<audio id="myAudio">
+    <source src="../../Content/audio/@String.Format("{0}.mp3", Model.SoundFile)" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioApplause">
+    <source src="../../Content/audio/win.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioSanta">
+    <source src="../../Content/audio/tadaa1.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioError">
+    <source src="../../Content/audio/incorrect.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+
+@section scripts {
+    <script type="text/javascript" src="../../Content/js/jquery-ui.js"></script>
+
+    <script>
+
+        if (typeof (soundManagerInit) != 'undefined') soundManagerInit();
+
+        function DoFireworks() {
+            var r = 4 + parseInt(Math.random() * 16);
+            for (var i = r; i--;) {
+                setTimeout('createFirework(50,200,4,null,null,null,null,null,Math.random()>0.5,true)', (i + 1) * (1 + parseInt(Math.random() * 1000)));
+            }
+            return false;
+        }
+
+        function playSound() {
+            var vid = document.getElementById("myAudio");
+            vid.play();
+        }
+
+        function playApplause() {
+            var vid = document.getElementById("audioApplause");
+            var hohoho = document.getElementById("audioSanta");
+            hohoho.play();
+            vid.play();
+        }
+
+        function playErrorSound() {
+            var vid = document.getElementById("audioError");
+            vid.play();
+        }
+
+        var soundFileName = '<%= soundFileName%>';
+
+        var selectedQ;
+        var selectedA;
+
+        function qClicked(div, id) {
+            ClearQ();
+            selectedQ = div.attributes["data-q-id"].value;
+            var divQuestion = $('#divQ' + selectedQ);
+            var divAnswer = $('#divA' + selectedA);
+            divQuestion.addClass('selected');
+
+            if (selectedA == selectedQ) {
+                //alert('MATCH!');
+                var aDiv = document.getElementById('divA' + selectedA);
+                connect(div, aDiv, "#0F0", 5);
+                markFound($('#divQ' + selectedQ));
+                markFound($('#' + aDiv.id));
+                playSound();
+                $('#' + aDiv.id).attr("data-is-solved", "true");
+                checkIfCompleted();
+                selectedA = "";
+                selectedQ = "";
+            }
+            else if (selectedA) {
+                //alert("Nope, try again :(");
+
+                divQuestion.removeClass('selected');
+                divAnswer.removeClass('selected');
+                selectedA = "";
+                selectedQ = "";
+                playErrorSound();
+            }
+        }
+
+        function aClicked(div, id) {
+            ClearA();
+            selectedA = div.attributes["data-a-id"].value;
+            var divQuestion = $('#divQ' + selectedQ);
+            var divAnswer = $('#divA' + selectedA);
+            divAnswer.addClass('selected');
+            if (selectedA == selectedQ) {
+                //alert('MATCH!');
+                var qDiv = document.getElementById('divQ' + selectedQ);
+                connect(qDiv, div, "#0F0", 5);
+                markFound($('#divQ' + selectedQ));
+                markFound($('#' + div.id));
+                playSound();
+                $('#' + div.id).attr("data-is-solved", "true");
+                checkIfCompleted();
+                selectedA = "";
+                selectedQ = "";
+            }
+            else if (selectedQ) {
+                //alert("Nope, try again :(");
+
+                divQuestion.removeClass('selected');
+                divAnswer.removeClass('selected');
+                selectedA = "";
+                selectedQ = "";
+                playErrorSound();
+            }
+        }
+
+        function markFound(myDiv) {
+            myDiv.css("opacity", "0.5")
+            myDiv.css("border", "2px solid red");
+        }
+
+        function checkIfCompleted() {
+            debugger;
+            var toSolve = $("td[data-is-solved='false']");
+            //alert(toSolve.length);
+            if (toSolve.length == 0) {
+                {
+                    DoFireworks();
+                    playApplause();
+                }
+            }
+        }
+
+        function ClearQ() {
+            $('#divQ' + selectedQ).removeClass('selected');
+        }
+
+        function ClearA() {
+            $('#divA' + selectedA).removeClass('selected');
+        }
+
+        function connect(div1, div2, color, thickness) {
+            debugger;
+            var off1 = getOffset(div1);
+            var off2 = getOffset(div2);
+            // bottom right
+            var x1 = off1.left + off1.width;
+            var y1 = off1.top + (off1.height / 2);
+            // top left
+            var x2 = off2.left;
+            var y2 = off2.top + (off2.height / 2);
+            // distance
+            var length = Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
+            // center
+            var cx = ((x1 + x2) / 2) - (length / 2);
+            var cy = ((y1 + y2) / 2) - (thickness / 2);
+            // angle
+            var angle = Math.atan2((y1 - y2), (x1 - x2)) * (180 / Math.PI);
+            // make hr
+            var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
+            //
+            //alert(htmlLine);
+            document.body.innerHTML += htmlLine;
+        }
+
+        function getOffset(el) {
+            var rect = el.getBoundingClientRect();
+            return {
+                left: rect.left + window.pageXOffset,
+                top: rect.top + window.pageYOffset,
+                width: rect.width || el.offsetWidth,
+                height: rect.height || el.offsetHeight
+            };
+        }
+                //$(".question").click(function () {
+                //    debugger;
+                //    qClicked(this, this.id)
+                //});
+                //$(".answer").click(function () {
+                //    debugger;
+                //    aClicked(this, this.id)
+                //});
+
+    </script>
+}
+@section styles
+{
+    <style>
+        .bordered {
+            border: 1px solid grey;
+        }
+
+        .selected {
+            border: 2px solid red;
+        }
+
+        div1 {
+            border: 1px dashed green;
+        }
+    </style>
+}

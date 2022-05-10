@@ -1,0 +1,163 @@
+@import "compass/css3";
+@media only screen and (min-width :501px) and (max-width :800px) {
+	[class*="col-"] {
+		width:50%;
+	}
+	.hero-content{
+		padding:0px 10px;
+	}
+	body{
+	overflow-x:hidden;		
+	}
+	.top-link{
+		left:20px;	
+	}
+	.top-link.right{
+		right:20px;
+		left:auto;
+	}
+	.owl-buttons{
+		left:2%;
+		right:2%;	
+	}
+	h1.entry-title{
+		text-align:center;
+	}
+	h1.entry-title img{
+		max-width:80%;
+		height:auto;
+		display:block;
+		margin:0px auto;	
+	}
+	.padding-left-120{
+		padding-left:0px;	
+	}
+	h1 a.small-action-btn{
+		float:none;
+		display:inline-block;
+		margin-top:10px;	
+	}
+}
+@media only screen and (min-width :320px) and (max-width :800px) {
+	.nav-toggle{
+		display:block;	
+	}
+	ul#nav{
+		display:none;	
+	}
+	ul#nav li{
+		float:none;
+		display:block;
+		width:100%;
+		text-align:left;	
+	}
+	ul#nav li a{
+		display:block;
+		text-align:left;
+		min-height:50px;
+		height:auto;
+		line-height:48px;
+		padding:0px;
+		padding-left:100px;	
+	}
+	ul#nav li a img{
+		position:absolute;
+		left:0px;
+		height:32px!important;
+		max-width:auto!important;
+		width:auto;
+		left:60px;
+	}
+	.nav-toggle.active i:before{
+		content: "\f00d";
+	}
+	.add-reponsive-padding .col-3{
+		margin-bottom:20px;
+	}
+	.hero-content{
+		padding:0px 50px;	
+	}
+	.section.add-reponsive-padding{
+		background:#283659!important;
+	}
+	ul#nav li ul{
+		display:none;
+		width:100%;
+		position:static;
+	}
+		ul#nav li:hover ul{
+			display:none;	
+		}
+	ul#nav li li a{
+		height:auto;
+		min-height:30px;
+		line-height:14px;
+		font-size:12px;
+		padding-left:100px;
+	}
+}
+@media only screen and (min-width :320px) and (max-width :500px) {
+	.logo img{
+		max-width:320px;
+		left:-40px;	
+	}
+	h1.entry-title img{
+		max-width:100%;	
+	}
+	[class*="col-"] {
+		float:none;
+		display:block;
+		padding: 10px;
+		width:100%;
+	}
+	.hero-content{
+		padding:0px 20px;	
+	}
+	body{
+		overflow-x:hidden;	
+	}
+	.hero-content .img-holder{
+		float:none;
+		display:block;
+		margin:0px auto;	
+	}
+	.hero-content .col-7.pull-right{
+		float:none;
+		text-align:center;
+		display:block;	
+	}
+	footer{
+		text-align:center;	
+	}
+	.top-link{
+		display:none;	
+	}
+	.hero-content .img-holder{
+		width:230px;
+		height:230px;	
+	}
+	.owl-buttons{
+		left:5%;
+		right:5%;	
+	}
+	h1.entry-title{
+		text-align:center;
+	}
+	h1.entry-title img{
+		max-width:80%!important;
+		height:auto!important;
+		display:block;
+		margin:0px auto;	
+	}
+	.padding-left-120{
+		padding-left:0px;	
+	}
+	h1 a.small-action-btn{
+		float:none;
+		display:inline-block;
+		margin-top:10px;	
+	}
+}
+@media only screen and (min-width :320px) and (max-width :360px) {
+	
+}

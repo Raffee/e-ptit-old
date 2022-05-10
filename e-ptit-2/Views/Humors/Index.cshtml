@@ -1,0 +1,20 @@
+﻿@model IEnumerable<e_ptit_2.Models.Humor>
+@{
+    ViewBag.Title = "Ժպիտներ";
+    ViewBag.BannerImage = "../Content/images/jbidner.png";
+}
+
+<div id="gallery-grid">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="../Content/images/Humor/@item.ImageName" />
+                </h4>
+            </div>
+        </div>
+        <br />
+        <br />
+    }
+</div>

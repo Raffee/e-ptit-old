@@ -1,0 +1,288 @@
+﻿@using Newtonsoft.Json
+
+@model e_ptit_2.Models.WordLetterViewModel
+@{
+    ViewBag.Title = "Բուրգ";
+}
+
+<div>
+    <div id="sound">
+    </div>
+
+    <div id="fireworks-template">
+        <div id="fw" class="firework"></div>
+        <div id="fp" class="fireworkParticle">
+            <img src="../../Content/fireworks/image/particles.gif" alt="" />
+        </div>
+    </div>
+
+    <div id="fireContainer"></div>
+</div>
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+        <h2>@Model.Game.Title.ToUpperInvariant()</h2>
+        <br />
+        <h3>@Model.Game.Description</h3>
+    </div>
+</div>
+<br />
+<div class="row" style="padding-left:30px;@Model.Style">
+    <div id="rpt-container" style="width: 100%;">
+        @if (Model.Game.Type == 1)
+        {
+            foreach (var word in Model.GameWords)
+            {
+                <table style="@Model.Game.TableCSS">
+                    <tr style="@Model.Game.RowCSS">
+                        <td style="@Model.Game.QuestionCSS">@word.Question</td>
+                        @{ int letterIndex = 0; }
+                        @foreach (var letter in word.Word.ToCharArray())
+                        {
+                            if (letterIndex == word.MainLetterIndex)
+                            {
+                                <td style="@Model.Game.MainLetterCSS">
+                                    <input id="@($"W-{word.pkLetterGameWordID}L{letterIndex}")" type="text" data-letter="@letter.ToString()" data-word="@word.Word" data-is-solved="false"
+                                           onblur="validateLetter(this)" onfocus="VirtualKeyboard.attachInput(this)" style="width: 40px; @Model.Game.TextboxCSS @Model.Game.MainTextboxCSS" class="letter-textbox"/>
+                                </td>
+                            }
+                            else
+                            {
+                                <td style="@Model.Game.NormalLetterCSS">@letter</td>
+                            }
+                            letterIndex++;
+                        }
+                    </tr>
+                </table>
+            }
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var word in Model.GameWords)
+                {
+                    int letterIndex = 0;
+                    <div class="@($"items-per-row-{@Model.ItemsPerRow}")" style="padding: 0 15px; border: 0px solid red;">
+                        <table style="@Model.Game.TableCSS">
+                            <tr style="@(string.IsNullOrWhiteSpace(Model.Game.RowCSS) ? "" : Model.Game.RowCSS)">
+                                <td><img alt="@word.Question" src="../../Content/images/games/armenian/@word.WordImage"/></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; align-content: center;">
+                                    <table>
+                                        <tr>
+                                            @foreach (var letter in word.Word.ToCharArray())
+                                            {
+                                                if (letterIndex == word.MainLetterIndex)
+                                                {
+                                                    <td style="@Model.Game.MainLetterCSS">
+                                                        <input id="@($"W-{word.pkLetterGameWordID}L{letterIndex}")" type="text" data-letter="@letter.ToString()" data-word="@word.Word" data-is-solved="false"
+                                                               onblur="validateLetter(this)" onfocus="VirtualKeyboard.attachInput(this)" style="width: 40px; @Model.Game.TextboxCSS @Model.Game.MainTextboxCSS" class="letter-textbox"/>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td style="@Model.Game.NormalLetterCSS">
+                                                        <input id="@($"W-{word.pkLetterGameWordID}L{letterIndex}")" type="text" data-letter="@letter.ToString()" data-word="@word.Word" data-is-solved="false"
+                                                               onblur="validateLetter(this)" onfocus="VirtualKeyboard.attachInput(this)" style="width: 40px; @Model.Game.TextboxCSS @Model.Game.MainTextboxCSS" class="letter-textbox"/>
+                                                    </td>
+                                                }
+                                                letterIndex++;
+                                            }
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                }
+            </div>
+        }
+        <div class="row pull-left" style="padding-top: 10px;">
+            <input type="text" id="some-id-data" style="display: none;"/>
+            <input type="text" id="txtAnswer" style="font-size: 20px; font-weight: bold; color: darkgreen;" data-is-solved="false" class="txt-data" onblur="CheckAnswer(false)" onfocus="VirtualKeyboard.attachInput(this)"/>
+            <a id="lnkAns" data-modal-id="divQ2Ans" href="#" runat="server" onclick="return CheckAnswer(true);" class="btn btn-info small pink danger">@e_ptit_2.Helpers.Constants.SHOW_ANSWER</a>
+        </div>
+
+    </div>
+</div>
+<div id="td"></div>
+
+<audio id="myAudio">
+    <source src="../../Content/audio/successful.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioApplause">
+    <source src="../../Content/audio/win.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioError">
+    <source src="../../Content/audio/incorrect.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioSanta">
+    <source src="../../Content/audio/tadaa1.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+
+@section scripts {
+    <script type="text/javascript" src="../../Content/js/jquery-ui.js"></script>
+
+    <script>
+
+        if (typeof (soundManagerInit) != 'undefined') soundManagerInit();
+
+        function DoFireworks() {
+            var r = 4 + parseInt(Math.random() * 16);
+            for (var i = r; i--;) {
+                setTimeout('createFirework(50,200,4,null,null,null,null,null,Math.random()>0.5,true)', (i + 1) * (1 + parseInt(Math.random() * 1000)));
+            }
+            return false;
+        }
+
+        function playSound() {
+            var vid = document.getElementById("myAudio");
+            vid.play();
+        }
+
+        function playApplause() {
+            var vid = document.getElementById("audioApplause");
+            var hohoho = document.getElementById("audioSanta");
+            hohoho.play();
+            vid.play();
+        }
+
+        function playErrorSound() {
+            var vid = document.getElementById("audioError");
+            vid.play();
+        }
+
+        debugger;
+        EM.addEventListener(window, 'domload', function () {
+            if ('@Model.ShowKeyboard' === 'True')
+                VirtualKeyboard.toggle('some-id-data', 'td');
+        });
+
+
+        $(document).ready(function () {
+
+            $(".txt-data").on("virtualKeyboardClick", function (event) {
+                debugger;
+                if (event.keyCode == 13) {
+                }
+                else {
+                    CheckAnswerWhileTyping();
+                }
+            });
+
+            $(".txt-data").on("keyup", function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    $(this).blur();
+                }
+                else {
+                    CheckAnswerWhileTyping();
+                }
+            });
+
+
+            $(".letter-textbox").on("virtualKeyboardClick", function (event) {
+                debugger;
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    $(this).blur();
+                }
+                else {
+                    validateLetter(this);
+                }
+            });
+
+            $(".letter-textbox").on("keyup", function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    $(this).blur();
+                }
+                else {
+                    validateLetter(this);
+                }
+            });
+        });
+
+        function CheckAnswer(showAnswer) {
+            debugger;
+            if ($("#txtAnswer").attr("data-is-solved") == 'false') {
+                var answer = $("#txtAnswer").val();
+                if (answer) {
+                    CheckIfCorrectAnswer();
+                    debugger;
+                }
+                else if (showAnswer) {
+                    swal("@e_ptit_2.Helpers.Constants.SHOW_ANSWER", "@Model.Game.Answer");
+                    debugger;
+                    return false;
+                }
+            }
+        }
+
+        function CheckAnswerWhileTyping() {
+            var txtAnswer = $("#txtAnswer");
+            var answer = $("#txtAnswer").val();
+
+            if ("@Model.Game.Answer.ToLowerInvariant()" == answer.toLowerCase()) {
+                DoFireworks();
+                playApplause();
+                document.getElementById(txtAnswer.attr('id')).style.borderColor = "green";
+                txtAnswer.attr("data-is-solved", "true");
+            }
+            else if (answer.length >= data.correctAnswer.length) {
+                document.getElementById($(txtAnswer).attr('id')).style.borderColor = "red";
+                playErrorSound();
+            }
+        }
+
+        function CheckIfCorrectAnswer() {
+            debugger;
+
+            var txtAnswer = $("#txtAnswer");
+            var answer = $("#txtAnswer").val();
+
+            if ("@Model.Game.Answer.ToLowerInvariant()" == answer.toLowerCase()) {
+                DoFireworks();
+                playApplause();
+                document.getElementById($(txtAnswer).attr('id')).style.borderColor = "green";
+                txtAnswer.attr("data-is-solved", "true");
+            }
+            else {
+                txtAnswer.val('');
+                document.getElementById($(txtAnswer).attr('id')).style.borderColor = "red";
+                playErrorSound();
+            }
+        }
+
+        function validateLetter(inp) {
+            debugger;
+            if (inp.value && inp.value.length > 0) {
+                if (inp.value.toLowerCase() == inp.attributes["data-letter"].value.toLowerCase()) {
+                    inp.attributes["style"] += "border; 1px solid green;"
+                    inp.attributes["readonly"] = "true";
+                    inp.readonly = true;
+                    inp.disable = true;
+                    var txt = document.getElementById(inp.id);
+                    if (txt) {
+                        txt.readonly = true;
+                        txt.attributes["readonly"] = "true";
+                        txt.readonly = true;
+                        txt.disabled = true;
+                    }
+                    var txtJ = $('#' + inp.id);
+                    txtJ.attr("data-is-solved", "true");
+                    playSound();
+
+                }
+                else {
+                    inp.value = "";
+                    playErrorSound();
+                }
+            }
+        }
+    </script>
+}

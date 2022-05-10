@@ -1,0 +1,1283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E99FD75-0869-4928-A6BC-E93892D3AC0B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>e_ptit_2</RootNamespace>
+    <AssemblyName>e-ptit-2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.8.0\lib\net45\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.4.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\FablesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HumorsController.cs" />
+    <Compile Include="Controllers\LanguageGamesController.cs" />
+    <Compile Include="Controllers\LogicalGamesController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MathGamesController.cs" />
+    <Compile Include="Controllers\OtherGamesController.cs" />
+    <Compile Include="Controllers\RiddlesController.cs" />
+    <Compile Include="Controllers\StoriesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CommonFunctions.cs" />
+    <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\PtitEnums.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
+    <Compile Include="Models\CrosswordViewModel.cs" />
+    <Compile Include="Models\EPtitDataClasses.cs">
+      <DependentUpon>EPtitDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EPtitDataClasses.designer.cs">
+      <DependentUpon>EPtitDataClasses.dbml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\GameViewModel.cs" />
+    <Compile Include="Models\HiddenWordViewModel.cs" />
+    <Compile Include="Models\HomePageDTO.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MatchingGame.cs" />
+    <Compile Include="Models\MatchingViewModel.cs" />
+    <Compile Include="Models\MazeViewModel.cs" />
+    <Compile Include="Models\ProverbViewModel.cs" />
+    <Compile Include="Models\PyramidViewModel.cs" />
+    <Compile Include="Models\SelectOneGame.cs" />
+    <Compile Include="Models\SelectOneViewModel.cs" />
+    <Compile Include="Models\Story.cs" />
+    <Compile Include="Models\StoryViewModel.cs" />
+    <Compile Include="Models\WordLetterViewModel.cs" />
+    <Compile Include="Models\WriteAnswerViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="comingsoon.html" />
+    <Content Include="Content\audio\Audience_Applause-Matthiew11-1206899159.mp3" />
+    <Content Include="Content\audio\bell_sound.mp3" />
+    <Content Include="Content\audio\Blop-Mark_DiAngelo-79054334.mp3" />
+    <Content Include="Content\audio\incorrect.mp3" />
+    <Content Include="Content\audio\Kid_Laugh-Mike_Koenig-1673908713.mp3" />
+    <Content Include="Content\audio\maze_move.wav" />
+    <Content Include="Content\audio\maze_move1.wav" />
+    <Content Include="Content\audio\santa-ho-ho-ho-2.wav" />
+    <Content Include="Content\audio\SMALL_CROWD_APPLAUSE-Yannick_Lemieux-1268806408.mp3" />
+    <Content Include="Content\audio\successful.mp3" />
+    <Content Include="Content\audio\tadaa1.wav" />
+    <Content Include="Content\audio\win.mp3" />
+    <Content Include="Content\audio\win1.mp3" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bk-template.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-1.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-15.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-16.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-18.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-19.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-2.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-21.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-24.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-25.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-3.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-4.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-5.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-7.css" />
+    <Content Include="Content\css\crossword\jquery.crosswordgame-numbers.css" />
+    <Content Include="Content\css\crossword\jquery.magicsquares.css" />
+    <Content Include="Content\css\crossword\jquery.sudokugame.css" />
+    <Content Include="Content\css\jquery.pyramid-1.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\sweetalert.css" />
+    <Content Include="Content\css\template.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-1.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-10.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-11.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-12.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-2.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-3.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-4.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-5.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-6.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-7.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-8.css" />
+    <Content Include="Content\css\wordsearchgame\jquery.wordsearchgame-9.css" />
+    <Content Include="Content\fireworks\audio\boom1.mp3" />
+    <Content Include="Content\fireworks\audio\boom2.mp3" />
+    <Content Include="Content\fireworks\audio\boom3.mp3" />
+    <Content Include="Content\fireworks\audio\boom4.mp3" />
+    <Content Include="Content\fireworks\audio\pop1.mp3" />
+    <Content Include="Content\fireworks\audio\pop2.mp3" />
+    <Content Include="Content\fireworks\audio\pop3.mp3" />
+    <Content Include="Content\fireworks\audio\pop4.mp3" />
+    <Content Include="Content\fireworks\audio\pop5.mp3" />
+    <Content Include="Content\fireworks\audio\pop6.mp3" />
+    <Content Include="Content\fireworks\demo-only\arrow.gif" />
+    <Content Include="Content\fireworks\demo-only\bottom.gif" />
+    <Content Include="Content\fireworks\demo-only\button-1.png" />
+    <Content Include="Content\fireworks\demo-only\button.png" />
+    <Content Include="Content\fireworks\demo-only\Copy of button.png" />
+    <Content Include="Content\fireworks\demo-only\demo.css" />
+    <Content Include="Content\fireworks\demo-only\demo.js" />
+    <Content Include="Content\fireworks\demo-only\fireworks-header.jpg" />
+    <Content Include="Content\fireworks\demo-only\item.gif" />
+    <Content Include="Content\fireworks\demo-only\slider-1.png" />
+    <Content Include="Content\fireworks\demo-only\slider-bar.gif" />
+    <Content Include="Content\fireworks\demo-only\slider-disabled-1.png" />
+    <Content Include="Content\fireworks\demo-only\slider-disabled.png" />
+    <Content Include="Content\fireworks\demo-only\slider.png" />
+    <Content Include="Content\fireworks\image\blank.gif" />
+    <Content Include="Content\fireworks\image\particles.gif" />
+    <Content Include="Content\fireworks\index.html" />
+    <Content Include="Content\fireworks\script\debug.js" />
+    <Content Include="Content\fireworks\script\fireworks.js" />
+    <Content Include="Content\fireworks\script\soundmanager.js" />
+    <Content Include="Content\fireworks\sound-config.xml" />
+    <Content Include="Content\fireworks\soundcontroller.swf" />
+    <Content Include="Content\fireworks\style\fireworks.css" />
+    <Content Include="Content\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Content\fonts\fonts.css" />
+    <Content Include="Content\fonts\NotoSansArmenian-Bold.svg" />
+    <Content Include="Content\fonts\NotoSansArmenian.svg" />
+    <Content Include="Content\fonts\preview.html" />
+    <Content Include="Content\images\about-ptit.jpg" />
+    <Content Include="Content\images\android.png" />
+    <Content Include="Content\images\androidb.png" />
+    <Content Include="Content\images\appscreen.jpg" />
+    <Content Include="Content\images\appstore.png" />
+    <Content Include="Content\images\aragner.png" />
+    <Content Include="Content\images\arrow-blue.png" />
+    <Content Include="Content\images\arrow.png" />
+    <Content Include="Content\images\arrows-white-small.png" />
+    <Content Include="Content\images\arrows-white.png" />
+    <Content Include="Content\images\arrows-yellow.png" />
+    <Content Include="Content\images\arrows.png" />
+    <Content Include="Content\images\Articles\article01.jpg" />
+    <Content Include="Content\images\Articles\article20160118.jpg" />
+    <Content Include="Content\images\Articles\articleHealth02.jpg" />
+    <Content Include="Content\images\Articles\articleOne.jpg" />
+    <Content Include="Content\images\Articles\article_20160301_ptit4.jpg" />
+    <Content Include="Content\images\Articles\article_20160510_ptit5.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed10\1.png" />
+    <Content Include="Content\images\Articles\editorial\ed10\2.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed11\1.png" />
+    <Content Include="Content\images\Articles\editorial\ed11\2.png" />
+    <Content Include="Content\images\Articles\editorial\ed11\3.png" />
+    <Content Include="Content\images\Articles\editorial\ed12\img1.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed12\img2.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed13\img1.png" />
+    <Content Include="Content\images\Articles\editorial\ed6\pic1.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed6\pic2-2.png" />
+    <Content Include="Content\images\Articles\editorial\ed6\pic2.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed6\pic3.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed6\pic4.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed7\articles_7-1.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed7\articles_7-2.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed8\img1.jpg" />
+    <Content Include="Content\images\Articles\editorial\ed8\img2.jpg" />
+    <Content Include="Content\images\Articles\health001.jpg" />
+    <Content Include="Content\images\Articles\healthArticle20160118.jpg" />
+    <Content Include="Content\images\Articles\health\ed10\1.jpg" />
+    <Content Include="Content\images\Articles\health\ed10\2.jpg" />
+    <Content Include="Content\images\Articles\health\ed10\3.jpg" />
+    <Content Include="Content\images\Articles\health\ed11\1.png" />
+    <Content Include="Content\images\Articles\health\ed11\2.png" />
+    <Content Include="Content\images\Articles\health\ed11\3.png" />
+    <Content Include="Content\images\Articles\health\ed11\4.png" />
+    <Content Include="Content\images\Articles\health\ed12\img1.png" />
+    <Content Include="Content\images\Articles\health\ed12\img2.jpg" />
+    <Content Include="Content\images\Articles\health\ed12\img3.jpg" />
+    <Content Include="Content\images\Articles\health\ed13\img1.png" />
+    <Content Include="Content\images\Articles\health\ed13\img2.png" />
+    <Content Include="Content\images\Articles\health\ed13\img3.png" />
+    <Content Include="Content\images\Articles\health\ed6\ptit6_health_pic1.jpg" />
+    <Content Include="Content\images\Articles\health\ed6\ptit6_health_pic2.jpg" />
+    <Content Include="Content\images\Articles\health\ed7\health_7-1.png" />
+    <Content Include="Content\images\Articles\health\ed7\health_7-2.png" />
+    <Content Include="Content\images\Articles\health\ed7\health_7-3.png" />
+    <Content Include="Content\images\Articles\health\ed7\health_7-4.png" />
+    <Content Include="Content\images\Articles\health\ed7\health_7-5.png" />
+    <Content Include="Content\images\Articles\health\ed8\boy1.png" />
+    <Content Include="Content\images\Articles\health\ed8\boy2.png" />
+    <Content Include="Content\images\Articles\health\ed8\coke-glass.png" />
+    <Content Include="Content\images\Articles\health\ed8\coke-sugar.png" />
+    <Content Include="Content\images\Articles\health\ed8\fruits.png" />
+    <Content Include="Content\images\Articles\health\ed8\milk.png" />
+    <Content Include="Content\images\Articles\health\ed8\orange.png" />
+    <Content Include="Content\images\Articles\health_20160301_ptit4_1.jpg" />
+    <Content Include="Content\images\Articles\health_20160510_ptit5.jpg" />
+    <Content Include="Content\images\badmoutiuner.png" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\box-img-1.jpg" />
+    <Content Include="Content\images\box-img-2.jpg" />
+    <Content Include="Content\images\box-img-3.jpg" />
+    <Content Include="Content\images\box-img-4.jpg" />
+    <Content Include="Content\images\box-img-5.jpg" />
+    <Content Include="Content\images\box-img-6.jpg" />
+    <Content Include="Content\images\box-img-7.jpg" />
+    <Content Include="Content\images\box-img-8.jpg" />
+    <Content Include="Content\images\contact-us-banner.jpg" />
+    <Content Include="Content\images\downloadbutton.png" />
+    <Content Include="Content\images\dramapanoutan.png" />
+    <Content Include="Content\images\Fables\aragner20160620_00.jpg" />
+    <Content Include="Content\images\Fables\aragner20160620_01.jpg" />
+    <Content Include="Content\images\Fables\aragner20160620_10.jpg" />
+    <Content Include="Content\images\Fables\aragner20160620_11.jpg" />
+    <Content Include="Content\images\Fables\b_f10-1-1.jpg" />
+    <Content Include="Content\images\Fables\b_f10-2-1.png" />
+    <Content Include="Content\images\Fables\b_f11-1-1.png" />
+    <Content Include="Content\images\Fables\b_f13-1-1.png" />
+    <Content Include="Content\images\Fables\b_f13-2-1.png" />
+    <Content Include="Content\images\Fables\b_proverb811.jpg" />
+    <Content Include="Content\images\Fables\b_proverb821.jpg" />
+    <Content Include="Content\images\Fables\f10-1-1.jpg" />
+    <Content Include="Content\images\Fables\f10-2-1.png" />
+    <Content Include="Content\images\Fables\f11-1-1.png" />
+    <Content Include="Content\images\Fables\f11-1-2.png" />
+    <Content Include="Content\images\Fables\f11-2-1.png" />
+    <Content Include="Content\images\Fables\f13-1-1.png" />
+    <Content Include="Content\images\Fables\f13-2-1.png" />
+    <Content Include="Content\images\Fables\fable_20160510_f1-0.jpg" />
+    <Content Include="Content\images\Fables\fable_20160510_f1-1.jpg" />
+    <Content Include="Content\images\Fables\fable_20160510_f2-0.jpg" />
+    <Content Include="Content\images\Fables\fable_20160510_f2-1.jpg" />
+    <Content Include="Content\images\Fables\fab_20160301_0.jpg" />
+    <Content Include="Content\images\Fables\fab_20160301_1.jpg" />
+    <Content Include="Content\images\Fables\fab_20160301_2.jpg" />
+    <Content Include="Content\images\Fables\fab_20160301_2_0.jpg" />
+    <Content Include="Content\images\Fables\fab_20160301_2_1.jpg" />
+    <Content Include="Content\images\Fables\p8-0.jpg" />
+    <Content Include="Content\images\Fables\p8-1.jpg" />
+    <Content Include="Content\images\Fables\p9-0.jpg" />
+    <Content Include="Content\images\Fables\p9-1.jpg" />
+    <Content Include="Content\images\Fables\p9-2.jpg" />
+    <Content Include="Content\images\Fables\proverb811.jpg" />
+    <Content Include="Content\images\Fables\proverb821.jpg" />
+    <Content Include="Content\images\Fables\proverb_7-1.jpg" />
+    <Content Include="Content\images\Fables\proverb_7-2.jpg" />
+    <Content Include="Content\images\Fables\r1_0.jpg" />
+    <Content Include="Content\images\Fables\r1_1.jpg" />
+    <Content Include="Content\images\Fables\r1_2.jpg" />
+    <Content Include="Content\images\Fables\r2_0.jpg" />
+    <Content Include="Content\images\Fables\r2_1.jpg" />
+    <Content Include="Content\images\Fables\r4_0.png" />
+    <Content Include="Content\images\Fables\r4_1.png" />
+    <Content Include="Content\images\Fables\r5_0.png" />
+    <Content Include="Content\images\Fables\r5_1.png" />
+    <Content Include="Content\images\Fables\r6_0.jpg" />
+    <Content Include="Content\images\Fables\r6_1.jpg" />
+    <Content Include="Content\images\Fables\r6_2.jpg" />
+    <Content Include="Content\images\Fables\r7_0.jpg" />
+    <Content Include="Content\images\Fables\r7_1.jpg" />
+    <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\games\armenian\arm-gm-1-a-bg.png" />
+    <Content Include="Content\images\games\armenian\arm-gm-1-q-bg.png" />
+    <Content Include="Content\images\games\armenian\ArmGame1a-01.png" />
+    <Content Include="Content\images\games\armenian\ArmGame1c-01.png" />
+    <Content Include="Content\images\games\armenian\ed10\gm1\cloud_color_1.png" />
+    <Content Include="Content\images\games\armenian\ed10\gm1\cloud_color_2.png" />
+    <Content Include="Content\images\games\armenian\ed10\gm1\cloud_color_3.png" />
+    <Content Include="Content\images\games\armenian\ed10\gm1\cloud_color_4.png" />
+    <Content Include="Content\images\games\armenian\ed10\gm1\cloud_color_5.png" />
+    <Content Include="Content\images\games\armenian\ed10\gm1\cloud_color_6.png" />
+    <Content Include="Content\images\games\armenian\ed10\gm1\cloud_color_7.png" />
+    <Content Include="Content\images\games\armenian\ed10\hid\bg.png" />
+    <Content Include="Content\images\games\armenian\ed10\saroukhan\img2.jpg" />
+    <Content Include="Content\images\games\armenian\ed11\gm1\stones1.png" />
+    <Content Include="Content\images\games\armenian\ed11\gm1\stones2.png" />
+    <Content Include="Content\images\games\armenian\ed11\gm1\stones3.png" />
+    <Content Include="Content\images\games\armenian\ed11\gm1\stones4.png" />
+    <Content Include="Content\images\games\armenian\ed11\gm1\stones5.png" />
+    <Content Include="Content\images\games\armenian\ed11\gm1\stones6.png" />
+    <Content Include="Content\images\games\armenian\ed11\gm1\stones7.png" />
+    <Content Include="Content\images\games\armenian\ed11\gm1\stones8.png" />
+    <Content Include="Content\images\games\armenian\ed11\hid1\bg.png" />
+    <Content Include="Content\images\games\armenian\ed12\fill1\bg.png" />
+    <Content Include="Content\images\games\armenian\ed12\hid1\bg.png" />
+    <Content Include="Content\images\games\armenian\ed12\match1\artichoke.png" />
+    <Content Include="Content\images\games\armenian\ed12\match1\carrots.png" />
+    <Content Include="Content\images\games\armenian\ed12\match1\dzaghgagaghamp.png" />
+    <Content Include="Content\images\games\armenian\ed12\match1\gaghamp.png" />
+    <Content Include="Content\images\games\armenian\ed12\match1\jagntegh.png" />
+    <Content Include="Content\images\games\armenian\ed12\match1\poghg.png" />
+    <Content Include="Content\images\games\armenian\ed12\match1\shoghkam.png" />
+    <Content Include="Content\images\games\armenian\ed12\match1\smpoug.png" />
+    <Content Include="Content\images\games\armenian\ed13\hid1\bg.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\accordion.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\cello.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\cymbal.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\flute.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\harp.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\kamancha.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\piano.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\sax.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\trumpet.png" />
+    <Content Include="Content\images\games\armenian\ed13\match1\violin.png" />
+    <Content Include="Content\images\games\armenian\ed2\gm1\gm1-item-bg.png" />
+    <Content Include="Content\images\games\armenian\ed2\hid1\bg.png" />
+    <Content Include="Content\images\games\armenian\ed2\hid2\bg.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov1.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov10.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov2.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov3.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov4.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov5.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov6.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov7.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov8.png" />
+    <Content Include="Content\images\games\armenian\ed3\fill\prov9.png" />
+    <Content Include="Content\images\games\armenian\ed3\hid1\buildings.png" />
+    <Content Include="Content\images\games\armenian\ed3\saroukhan\img1.png" />
+    <Content Include="Content\images\games\armenian\ed3\saroukhan\img2.png" />
+    <Content Include="Content\images\games\armenian\ed4\hid4\bg.png" />
+    <Content Include="Content\images\games\armenian\ed4\letters1\main-bg.png" />
+    <Content Include="Content\images\games\armenian\ed4\letters1\norm-bg.png" />
+    <Content Include="Content\images\games\armenian\ed4\saroukhan\img1.jpg" />
+    <Content Include="Content\images\games\armenian\ed4\saroukhan\img1.png" />
+    <Content Include="Content\images\games\armenian\ed4\saroukhan\img2.jpg" />
+    <Content Include="Content\images\games\armenian\ed5\hid\bg.png" />
+    <Content Include="Content\images\games\armenian\ed5\saroukhan\img2.png" />
+    <Content Include="Content\images\games\armenian\ed6\hid\bg.gif" />
+    <Content Include="Content\images\games\armenian\ed6\hid\bg.png" />
+    <Content Include="Content\images\games\armenian\ed6\matching\match_bg_center.png" />
+    <Content Include="Content\images\games\armenian\ed6\matching\match_bg_left.png" />
+    <Content Include="Content\images\games\armenian\ed6\matching\match_bg_right.png" />
+    <Content Include="Content\images\games\armenian\ed6\saroukhan\img2.png" />
+    <Content Include="Content\images\games\armenian\ed7\gm1\axe.png" />
+    <Content Include="Content\images\games\armenian\ed7\gm1\hammer.png" />
+    <Content Include="Content\images\games\armenian\ed7\gm1\pense.png" />
+    <Content Include="Content\images\games\armenian\ed7\gm1\pritch.png" />
+    <Content Include="Content\images\games\armenian\ed7\gm1\saw.png" />
+    <Content Include="Content\images\games\armenian\ed7\gm1\scissors.png" />
+    <Content Include="Content\images\games\armenian\ed7\gm1\screwdriver.png" />
+    <Content Include="Content\images\games\armenian\ed7\gm1\shovel.png" />
+    <Content Include="Content\images\games\armenian\ed7\hid\bg.png" />
+    <Content Include="Content\images\games\armenian\ed7\saroukhan\img2.png" />
+    <Content Include="Content\images\games\armenian\ed8\gm1\cloud.png" />
+    <Content Include="Content\images\games\armenian\ed8\hid\bg.png" />
+    <Content Include="Content\images\games\armenian\gm-2\cat.png" />
+    <Content Include="Content\images\games\armenian\gm-2\chicken.png" />
+    <Content Include="Content\images\games\armenian\gm-2\cow.png" />
+    <Content Include="Content\images\games\armenian\gm-2\dog.png" />
+    <Content Include="Content\images\games\armenian\gm-2\horse.png" />
+    <Content Include="Content\images\games\armenian\gm-2\lion.png" />
+    <Content Include="Content\images\games\armenian\gm-2\pig.png" />
+    <Content Include="Content\images\games\armenian\gm-2\sheep.png" />
+    <Content Include="Content\images\games\armenian\gm-2\snake.png" />
+    <Content Include="Content\images\games\armenian\gm-2\wolf.png" />
+    <Content Include="Content\images\games\armenian\gm-a-tbl-bg-1.png" />
+    <Content Include="Content\images\games\armenian\gm-a-tbl-foot-1.png" />
+    <Content Include="Content\images\games\armenian\gm-a-tbl-head-1.png" />
+    <Content Include="Content\images\games\armenian\gm-q-tbl-bg-1.png" />
+    <Content Include="Content\images\games\armenian\gm-q-tbl-foot-1.png" />
+    <Content Include="Content\images\games\armenian\gm-q-tbl-head-1.png" />
+    <Content Include="Content\images\games\armenian\numbers\1.png" />
+    <Content Include="Content\images\games\crossword\ed11\gm1\answer.jpg" />
+    <Content Include="Content\images\games\crossword\ed11\gm1\answer10.jpg" />
+    <Content Include="Content\images\games\crossword\ed11\gm1\bg.png" />
+    <Content Include="Content\images\games\crossword\ed11\gm2\bg.png" />
+    <Content Include="Content\images\games\crossword\ed13\gm1\bg.png" />
+    <Content Include="Content\images\games\crossword\ed2\gm3\bg-3.png" />
+    <Content Include="Content\images\games\crossword\ed2\gm4\bg-4.png" />
+    <Content Include="Content\images\games\crossword\ed3\gm5\bg.png" />
+    <Content Include="Content\images\games\crossword\ed4\gm7\bg.png" />
+    <Content Include="Content\images\games\crossword\ed4\gm7\bg2.png" />
+    <Content Include="Content\images\games\crossword\ed5\gm1bg.png" />
+    <Content Include="Content\images\games\crossword\ed7\bg.png" />
+    <Content Include="Content\images\games\crossword\gm1\bg.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\eight10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\eighteen10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\eleven10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\fifteen10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\five10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\four10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\fourteen10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\nine10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\nineteen10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\one.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\one10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\seven10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\seventeen10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\six10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\sixteen10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\ten10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\thirteen10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\three10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\twelve10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\twenty10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\twentyfour10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\twentyone10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\twentythree10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\twentytwo10.png" />
+    <Content Include="Content\images\games\crossword\numbers\black\two10.png" />
+    <Content Include="Content\images\games\icons\enter_differences.png" />
+    <Content Include="Content\images\games\icons\enter_fill-in-the-blank.png" />
+    <Content Include="Content\images\games\icons\grid-icon-1.png" />
+    <Content Include="Content\images\games\icons\grid-icon-2.png" />
+    <Content Include="Content\images\games\icons\grid-icon-3.png" />
+    <Content Include="Content\images\games\icons\grid-icon-4.png" />
+    <Content Include="Content\images\games\icons\lang_crossword.png" />
+    <Content Include="Content\images\games\icons\lang__dictation.png" />
+    <Content Include="Content\images\games\icons\lang__haganish.png" />
+    <Content Include="Content\images\games\icons\lang__homanish.png" />
+    <Content Include="Content\images\games\icons\lang__matching-image.png" />
+    <Content Include="Content\images\games\icons\lang__matching.png" />
+    <Content Include="Content\images\games\icons\lang__missing-word.png" />
+    <Content Include="Content\images\games\icons\lang__sound-image.png" />
+    <Content Include="Content\images\games\icons\lang__word-search.png" />
+    <Content Include="Content\images\games\icons\logic__cheharmarogh-negar.png" />
+    <Content Include="Content\images\games\icons\logic__cheharmarogh-par.png" />
+    <Content Include="Content\images\games\icons\logic__cheharmarogh-tiv.png" />
+    <Content Include="Content\images\games\icons\logic__sequence.png" />
+    <Content Include="Content\images\games\icons\logic__sudoku-letter.png" />
+    <Content Include="Content\images\games\icons\logic__sudoku.png" />
+    <Content Include="Content\images\games\icons\math_matching.png" />
+    <Content Include="Content\images\games\icons\math__crossword.png" />
+    <Content Include="Content\images\games\icons\math__equations.png" />
+    <Content Include="Content\images\games\icons\math__pyramid.png" />
+    <Content Include="Content\images\games\icons\maze.png" />
+    <Content Include="Content\images\games\icons\select_one_logic.png" />
+    <Content Include="Content\images\games\icons\write_answer_logic.png" />
+    <Content Include="Content\images\games\icons\write_answer_math.png" />
+    <Content Include="Content\images\games\icons\write_answer_other.png" />
+    <Content Include="Content\images\games\maze\ed10\maze.png" />
+    <Content Include="Content\images\games\maze\ed11\maze-old.png" />
+    <Content Include="Content\images\games\maze\ed11\maze.png" />
+    <Content Include="Content\images\games\maze\ed12\maze.png" />
+    <Content Include="Content\images\games\maze\ed13\maze.png" />
+    <Content Include="Content\images\games\maze\ed3\maze.gif" />
+    <Content Include="Content\images\games\maze\ed4\maze4b.png" />
+    <Content Include="Content\images\games\maze\ed4\maze4c.png" />
+    <Content Include="Content\images\games\maze\ed5\maze.png" />
+    <Content Include="Content\images\games\maze\ed6\maze.png" />
+    <Content Include="Content\images\games\maze\ed6\maze_old.png" />
+    <Content Include="Content\images\games\maze\ed7\maze.png" />
+    <Content Include="Content\images\games\maze\ed8\maze.png" />
+    <Content Include="Content\images\games\other\difference\2owl1.png" />
+    <Content Include="Content\images\games\other\difference\2owl2.png" />
+    <Content Include="Content\images\games\other\difference\2owl3.png" />
+    <Content Include="Content\images\games\other\difference\ed10\diff1.jpg" />
+    <Content Include="Content\images\games\other\difference\ed10\diff2.jpg" />
+    <Content Include="Content\images\games\other\difference\ed10\diff3.jpg" />
+    <Content Include="Content\images\games\other\difference\ed12\1.jpg" />
+    <Content Include="Content\images\games\other\difference\ed12\2.jpg" />
+    <Content Include="Content\images\games\other\difference\ed12\3.jpg" />
+    <Content Include="Content\images\games\other\difference\ed2\diffsnow1.png" />
+    <Content Include="Content\images\games\other\difference\ed2\diffsnow2.png" />
+    <Content Include="Content\images\games\other\difference\ed2\diffsnow3.png" />
+    <Content Include="Content\images\games\other\difference\ed3\d1.png" />
+    <Content Include="Content\images\games\other\difference\ed3\d2.png" />
+    <Content Include="Content\images\games\other\difference\ed3\d3.png" />
+    <Content Include="Content\images\games\other\difference\ed4\1.jpg" />
+    <Content Include="Content\images\games\other\difference\ed4\2.jpg" />
+    <Content Include="Content\images\games\other\difference\ed4\3.png" />
+    <Content Include="Content\images\games\other\difference\ed5\diff1.jpg" />
+    <Content Include="Content\images\games\other\difference\ed5\diff2.jpg" />
+    <Content Include="Content\images\games\other\difference\ed5\diff3.png" />
+    <Content Include="Content\images\games\other\difference\ed6\diff1.png" />
+    <Content Include="Content\images\games\other\difference\ed6\diff2.png" />
+    <Content Include="Content\images\games\other\difference\ed6\diff3.png" />
+    <Content Include="Content\images\games\other\difference\ed7\diff1.png" />
+    <Content Include="Content\images\games\other\difference\ed7\diff2.png" />
+    <Content Include="Content\images\games\other\difference\ed7\diff3.png" />
+    <Content Include="Content\images\games\other\difference\gm-1-a.png" />
+    <Content Include="Content\images\games\other\difference\gm-1-b.png" />
+    <Content Include="Content\images\games\other\difference\gm-2-a.png" />
+    <Content Include="Content\images\games\other\difference\gm-2-b.png" />
+    <Content Include="Content\images\games\other\difference\owl1_350.png" />
+    <Content Include="Content\images\games\other\difference\owl2_350.png" />
+    <Content Include="Content\images\games\other\difference\owl_ans_350.png" />
+    <Content Include="Content\images\games\other\difference\winter1_350.png" />
+    <Content Include="Content\images\games\other\difference\winter2_350.png" />
+    <Content Include="Content\images\games\other\difference\winter_ans_350.png" />
+    <Content Include="Content\images\games\other\jamants\ed2\gm1\jamants-triangles.png" />
+    <Content Include="Content\images\games\other\logic\ed10\fill1\1.png" />
+    <Content Include="Content\images\games\other\logic\ed10\fill1\2.png" />
+    <Content Include="Content\images\games\other\logic\ed10\fill1\3.png" />
+    <Content Include="Content\images\games\other\logic\ed10\fill1\4.png" />
+    <Content Include="Content\images\games\other\logic\ed10\fill1\5.png" />
+    <Content Include="Content\images\games\other\logic\ed10\sel1\train.png" />
+    <Content Include="Content\images\games\other\logic\ed10\sel1\wagon.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel1\butterfly.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel1\snail.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\butterfly-diff.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\butterfly.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\cat-diff.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\cat.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\chick-diff.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\chick.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\cocks-diff.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\cocks.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\sheep-diff.png" />
+    <Content Include="Content\images\games\other\logic\ed11\sel2\sheep.png" />
+    <Content Include="Content\images\games\other\logic\ed12\gm1\bg1.png" />
+    <Content Include="Content\images\games\other\logic\ed12\gm1\bg2.png" />
+    <Content Include="Content\images\games\other\logic\ed12\gm1\bg3.png" />
+    <Content Include="Content\images\games\other\logic\ed12\gm1\bg4.png" />
+    <Content Include="Content\images\games\other\logic\ed12\gm1\bg5.png" />
+    <Content Include="Content\images\games\other\logic\ed13\fill1\1.png" />
+    <Content Include="Content\images\games\other\logic\ed13\fill1\2.png" />
+    <Content Include="Content\images\games\other\logic\ed13\fill1\3.png" />
+    <Content Include="Content\images\games\other\logic\ed13\fill1\4.png" />
+    <Content Include="Content\images\games\other\logic\ed13\fill1\5.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\blueball.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\blueball_2.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\goldbells.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\goldbells_2.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\greenball.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\greenball_2.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\nour.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\nour_2.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\redball.png" />
+    <Content Include="Content\images\games\other\logic\ed13\sel1\redball_2.png" />
+    <Content Include="Content\images\games\other\logic\ed1\gm1\game-sel-bg-1.png" />
+    <Content Include="Content\images\games\other\logic\ed1\gm1\game-sel-bg-3.png" />
+    <Content Include="Content\images\games\other\logic\ed1\gm1\game-sel-bg-4.png" />
+    <Content Include="Content\images\games\other\logic\ed1\gm1\game-sel-bg-5.png" />
+    <Content Include="Content\images\games\other\logic\ed1\gm1\game-sel-bg-6.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm1\bell.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm1\deer.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm1\ginger.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm1\snowman.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm1\tree.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm2\ball.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm2\sahnag.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm2\santa.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm2\santa2.png" />
+    <Content Include="Content\images\games\other\logic\ed2\gm2\sock.png" />
+    <Content Include="Content\images\games\other\logic\ed3\gm1\bg1.png" />
+    <Content Include="Content\images\games\other\logic\ed3\gm1\bg2.png" />
+    <Content Include="Content\images\games\other\logic\ed3\gm1\bg3.png" />
+    <Content Include="Content\images\games\other\logic\ed3\gm1\bg4.png" />
+    <Content Include="Content\images\games\other\logic\ed3\gm1\bg5.png" />
+    <Content Include="Content\images\games\other\logic\ed6\gm1\sun.png" />
+    <Content Include="Content\images\games\other\logic\ed6\gm1\wheel.png" />
+    <Content Include="Content\images\games\other\logic\ed6\gm2\kiwi.png" />
+    <Content Include="Content\images\games\other\logic\ed6\gm2\lemon.png" />
+    <Content Include="Content\images\games\other\logic\ed7\gm1\1.png" />
+    <Content Include="Content\images\games\other\logic\ed7\gm1\2.png" />
+    <Content Include="Content\images\games\other\logic\ed7\gm2\bg1.png" />
+    <Content Include="Content\images\games\other\logic\ed7\gm2\bg2.png" />
+    <Content Include="Content\images\games\other\logic\ed7\gm2\bg3.png" />
+    <Content Include="Content\images\games\other\logic\ed7\gm2\bg4.png" />
+    <Content Include="Content\images\games\other\logic\ed7\gm2\bg5.png" />
+    <Content Include="Content\images\games\other\logic\gm-2\gm-2-bg.png" />
+    <Content Include="Content\images\games\other\logic\gm-2\gm-22-bg.png" />
+    <Content Include="Content\images\games\other\logic\gm-2\gm-23-bg.png" />
+    <Content Include="Content\images\games\other\logic\gm-2\gm-24-bg.png" />
+    <Content Include="Content\images\games\other\logic\gm-2\gm-25-bg.png" />
+    <Content Include="Content\images\games\other\logic\gm-2\page-bg.png" />
+    <Content Include="Content\images\games\other\logic\magicsquareexample.png" />
+    <Content Include="Content\images\games\other\logic\sudoku4example.png" />
+    <Content Include="Content\images\games\other\logic\sudoku6example.png" />
+    <Content Include="Content\images\games\other\logic\sudokubg.png" />
+    <Content Include="Content\images\games\other\logic\wizard.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill1\10-1.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill1\10-2.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill1\10-3.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill1\10-4.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill1\10-5.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill1\10-6.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill1\10-7.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\1.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\10.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\11.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\12.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\2.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\3.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\4.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\5.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\6.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\7.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\8.png" />
+    <Content Include="Content\images\games\other\math\ed10\fill2\9.png" />
+    <Content Include="Content\images\games\other\math\ed12\fill1\1.png" />
+    <Content Include="Content\images\games\other\math\ed12\fill1\2.png" />
+    <Content Include="Content\images\games\other\math\ed12\fill1\3.png" />
+    <Content Include="Content\images\games\other\math\ed12\fill1\4.png" />
+    <Content Include="Content\images\games\other\math\ed12\fill1\5.png" />
+    <Content Include="Content\images\games\other\math\ed12\fill1\6.png" />
+    <Content Include="Content\images\games\other\math\ed12\fill1\7.png" />
+    <Content Include="Content\images\games\other\math\ed12\fill1\8.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm1\bg.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm2\circle.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm2\cube.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm2\cyl.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm2\hex.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm2\rect.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm2\romb.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm2\sq.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm2\trap.png" />
+    <Content Include="Content\images\games\other\math\ed3\gm2\tri.png" />
+    <Content Include="Content\images\games\other\math\ed4\gm2\1.png" />
+    <Content Include="Content\images\games\other\math\ed4\gm2\2.png" />
+    <Content Include="Content\images\games\other\math\ed4\gm2\3.png" />
+    <Content Include="Content\images\games\other\math\ed4\gm2\4.png" />
+    <Content Include="Content\images\games\other\math\ed4\gm2\5.png" />
+    <Content Include="Content\images\games\other\math\ed4\gm2\6.png" />
+    <Content Include="Content\images\games\other\math\ed5\fill1\bg1.png" />
+    <Content Include="Content\images\games\other\math\ed5\fill1\bg2.png" />
+    <Content Include="Content\images\games\other\math\ed5\fill1\bg3.png" />
+    <Content Include="Content\images\games\other\math\ed5\fill1\bg4.png" />
+    <Content Include="Content\images\games\other\math\ed5\fill1\bg5.png" />
+    <Content Include="Content\images\games\other\math\ed5\pyramid\td-bg.png" />
+    <Content Include="Content\images\games\other\math\ed6\fill1\1.png" />
+    <Content Include="Content\images\games\other\math\ed6\fill1\2.png" />
+    <Content Include="Content\images\games\other\math\ed6\fill1\3.png" />
+    <Content Include="Content\images\games\other\math\ed6\fill1\4.png" />
+    <Content Include="Content\images\games\other\math\ed6\fill1\5.png" />
+    <Content Include="Content\images\games\other\math\ed6\fill1\6.png" />
+    <Content Include="Content\images\games\other\math\ed6\fill1\7.png" />
+    <Content Include="Content\images\games\other\math\ed6\fill1\8.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\dblue.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\dgreen.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\fuschia.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\green.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\green1.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\lblue.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\orange.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\pink.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\red.png" />
+    <Content Include="Content\images\games\other\math\ed7\match1\top.png" />
+    <Content Include="Content\images\games\other\math\math-bg-1.png" />
+    <Content Include="Content\images\games\other\math\math-bg-2.png" />
+    <Content Include="Content\images\games\other\math\pyramid_bg_bottom.png" />
+    <Content Include="Content\images\googleplay.png" />
+    <Content Include="Content\images\haneloug.jpg" />
+    <Content Include="Content\images\header-bg.png" />
+    <Content Include="Content\images\heading-1.png" />
+    <Content Include="Content\images\heading-2.png" />
+    <Content Include="Content\images\heading-3.png" />
+    <Content Include="Content\images\heading-4.png" />
+    <Content Include="Content\images\hero-img-2.jpg" />
+    <Content Include="Content\images\hero-img.png" />
+    <Content Include="Content\images\hotvadzner.png" />
+    <Content Include="Content\images\Humor\humor0.jpg" />
+    <Content Include="Content\images\Humor\humor1.jpg" />
+    <Content Include="Content\images\Humor\humor20160118_1.jpg" />
+    <Content Include="Content\images\Humor\humor20160118_2.jpg" />
+    <Content Include="Content\images\Humor\humor_20160301_ptit4_1.jpg" />
+    <Content Include="Content\images\Humor\humor_20160301_ptit4_2.jpg" />
+    <Content Include="Content\images\Humor\humor_20160510_ptit5_1.jpg" />
+    <Content Include="Content\images\Humor\humor_20160510_ptit5_2.jpg" />
+    <Content Include="Content\images\Humor\humor_20161010_ptit7_1.png" />
+    <Content Include="Content\images\Humor\humor_20161010_ptit7_2.png" />
+    <Content Include="Content\images\Humor\humor_20161010_ptit7_2_2.png" />
+    <Content Include="Content\images\Humor\jbid1.jpg" />
+    <Content Include="Content\images\Humor\jbid10-1.png" />
+    <Content Include="Content\images\Humor\jbid10-2.png" />
+    <Content Include="Content\images\Humor\jbid11-1.png" />
+    <Content Include="Content\images\Humor\jbid11-2.png" />
+    <Content Include="Content\images\Humor\jbid13-1.png" />
+    <Content Include="Content\images\Humor\jbid13-2.png" />
+    <Content Include="Content\images\Humor\jbid2.jpg" />
+    <Content Include="Content\images\Humor\jbid3.jpg" />
+    <Content Include="Content\images\Humor\jbid4.jpg" />
+    <Content Include="Content\images\Humor\Jebid 9-01.png" />
+    <Content Include="Content\images\Humor\Jebid 9-02.png" />
+    <Content Include="Content\images\Humor\Jebid-8-1.png" />
+    <Content Include="Content\images\Humor\Jebid-8-2.png" />
+    <Content Include="Content\images\icon-1.png" />
+    <Content Include="Content\images\icon-2.png" />
+    <Content Include="Content\images\icon-3.png" />
+    <Content Include="Content\images\icon-4.png" />
+    <Content Include="Content\images\ios.png" />
+    <Content Include="Content\images\iosb.png" />
+    <Content Include="Content\images\jamants.png" />
+    <Content Include="Content\images\jbidner.png" />
+    <Content Include="Content\images\language-bg.jpg" />
+    <Content Include="Content\images\lezvagan.png" />
+    <Content Include="Content\images\logo-text.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo.svg" />
+    <Content Include="Content\images\nav-bg-nt%281%29.png" />
+    <Content Include="Content\images\nav-icon-1.png" />
+    <Content Include="Content\images\nav-icon-2.png" />
+    <Content Include="Content\images\nav-icon-3.png" />
+    <Content Include="Content\images\nav-icon-4.png" />
+    <Content Include="Content\images\nav-icon-5.png" />
+    <Content Include="Content\images\nav-icon-6.png" />
+    <Content Include="Content\images\nav-icon-7.png" />
+    <Content Include="Content\images\nav-icon-8.png" />
+    <Content Include="Content\images\nav-icon-9.png" />
+    <Content Include="Content\images\newfables.png" />
+    <Content Include="Content\images\newstories.png" />
+    <Content Include="Content\images\Riddles\r1.jpg" />
+    <Content Include="Content\images\Riddles\r2.jpg" />
+    <Content Include="Content\images\Riddles\riddle01.jpg" />
+    <Content Include="Content\images\Riddles\riddle20160118.jpg" />
+    <Content Include="Content\images\Riddles\riddles10.png" />
+    <Content Include="Content\images\Riddles\riddles20160620_01.jpg" />
+    <Content Include="Content\images\Riddles\riddle_20160301_ptit4.jpg" />
+    <Content Include="Content\images\Riddles\riddle_20160510_ptit5.jpg" />
+    <Content Include="Content\images\Riddles\riddle_20161010_ptit7.png" />
+    <Content Include="Content\images\section-4-bg.jpg" />
+    <Content Include="Content\images\soon.jpg" />
+    <Content Include="Content\images\sponsor.png" />
+    <Content Include="Content\images\Stories\badmoutyoun20160620_00.jpg" />
+    <Content Include="Content\images\Stories\badmoutyoun20160620_01.jpg" />
+    <Content Include="Content\images\Stories\badmoutyoun20160620_02.jpg" />
+    <Content Include="Content\images\Stories\badmoutyoun20160620_10.jpg" />
+    <Content Include="Content\images\Stories\badmoutyoun20160620_11.jpg" />
+    <Content Include="Content\images\Stories\badmoutyoun20160620_12.jpg" />
+    <Content Include="Content\images\Stories\b_s10-1-1.jpg" />
+    <Content Include="Content\images\Stories\b_s10-2-1.jpg" />
+    <Content Include="Content\images\Stories\b_s11-1-1.png" />
+    <Content Include="Content\images\Stories\b_s12-1-1.jpg" />
+    <Content Include="Content\images\Stories\b_s12-2-1.jpg" />
+    <Content Include="Content\images\Stories\b_s13-1-1.png" />
+    <Content Include="Content\images\Stories\b_s13-2-1.png" />
+    <Content Include="Content\images\Stories\b_s1_0.png" />
+    <Content Include="Content\images\Stories\b_s3_0.png" />
+    <Content Include="Content\images\Stories\b_story_8_1.jpg" />
+    <Content Include="Content\images\Stories\b_story_8_2.jpg" />
+    <Content Include="Content\images\Stories\b_story_8_2_1.jpg" />
+    <Content Include="Content\images\Stories\riddle01.jpg" />
+    <Content Include="Content\images\Stories\s10-1-1.jpg" />
+    <Content Include="Content\images\Stories\s10-1-2.jpg" />
+    <Content Include="Content\images\Stories\s10-2-1.jpg" />
+    <Content Include="Content\images\Stories\s10-2-2.jpg" />
+    <Content Include="Content\images\Stories\s11-1-1.png" />
+    <Content Include="Content\images\Stories\s11-1-2.png" />
+    <Content Include="Content\images\Stories\s11-1-3.png" />
+    <Content Include="Content\images\Stories\s11-2-1.png" />
+    <Content Include="Content\images\Stories\s11-2-2.png" />
+    <Content Include="Content\images\Stories\s11-2-3.png" />
+    <Content Include="Content\images\Stories\s12-1-1.jpg" />
+    <Content Include="Content\images\Stories\s12-1-2.jpg" />
+    <Content Include="Content\images\Stories\s12-1-3.jpg" />
+    <Content Include="Content\images\Stories\s12-2-1.jpg" />
+    <Content Include="Content\images\Stories\s12-2-2.jpg" />
+    <Content Include="Content\images\Stories\s13-1-1.png" />
+    <Content Include="Content\images\Stories\s13-1-2.png" />
+    <Content Include="Content\images\Stories\s13-2-1.png" />
+    <Content Include="Content\images\Stories\s13-2-2.png" />
+    <Content Include="Content\images\Stories\s13-2-3.png" />
+    <Content Include="Content\images\Stories\s1_0.png" />
+    <Content Include="Content\images\Stories\s1_1.png" />
+    <Content Include="Content\images\Stories\s1_2.png" />
+    <Content Include="Content\images\Stories\s1_3.png" />
+    <Content Include="Content\images\Stories\s1_4.png" />
+    <Content Include="Content\images\Stories\s2_0.jpg" />
+    <Content Include="Content\images\Stories\s2_1.jpg" />
+    <Content Include="Content\images\Stories\s2_2.jpg" />
+    <Content Include="Content\images\Stories\s2_3.jpg" />
+    <Content Include="Content\images\Stories\s2_4.jpg" />
+    <Content Include="Content\images\Stories\s3_0.png" />
+    <Content Include="Content\images\Stories\s3_1.png" />
+    <Content Include="Content\images\Stories\s3_2.png" />
+    <Content Include="Content\images\Stories\S4_0.png" />
+    <Content Include="Content\images\Stories\S4_1.png" />
+    <Content Include="Content\images\Stories\S4_2.png" />
+    <Content Include="Content\images\Stories\S4_3.png" />
+    <Content Include="Content\images\Stories\S4_4.png" />
+    <Content Include="Content\images\Stories\S5_0.png" />
+    <Content Include="Content\images\Stories\S5_3.png" />
+    <Content Include="Content\images\Stories\s6-0.jpg" />
+    <Content Include="Content\images\Stories\s6-1.jpg" />
+    <Content Include="Content\images\Stories\s6-2.jpg" />
+    <Content Include="Content\images\Stories\s7-0.jpg" />
+    <Content Include="Content\images\Stories\s7-1.jpg" />
+    <Content Include="Content\images\Stories\s7-2.jpg" />
+    <Content Include="Content\images\Stories\s7-3.jpg" />
+    <Content Include="Content\images\Stories\story_20160301_1_0.jpg" />
+    <Content Include="Content\images\Stories\story_20160301_1_1.jpg" />
+    <Content Include="Content\images\Stories\story_20160301_1_2.jpg" />
+    <Content Include="Content\images\Stories\story_20160301_1_3.jpg" />
+    <Content Include="Content\images\Stories\story_20160301_2_0.jpg" />
+    <Content Include="Content\images\Stories\story_20160301_2_1.jpg" />
+    <Content Include="Content\images\Stories\story_20160301_2_2.jpg" />
+    <Content Include="Content\images\Stories\story_20160510_s1-0.jpg" />
+    <Content Include="Content\images\Stories\story_20160510_s1-1.jpg" />
+    <Content Include="Content\images\Stories\story_20160510_s1-2.jpg" />
+    <Content Include="Content\images\Stories\story_20160510_s2-0.jpg" />
+    <Content Include="Content\images\Stories\story_20160510_s2-1.jpg" />
+    <Content Include="Content\images\Stories\story_20160510_s2-2.jpg" />
+    <Content Include="Content\images\Stories\story_7-1-1.jpg" />
+    <Content Include="Content\images\Stories\story_7-1-2.jpg" />
+    <Content Include="Content\images\Stories\story_7-2-1.jpg" />
+    <Content Include="Content\images\Stories\story_7-2-2.jpg" />
+    <Content Include="Content\images\Stories\story_8_1.jpg" />
+    <Content Include="Content\images\Stories\story_8_1_b.jpg" />
+    <Content Include="Content\images\Stories\story_8_2.jpg" />
+    <Content Include="Content\images\Stories\story_8_2_1.jpg" />
+    <Content Include="Content\images\Stories\story_8_2_2.jpg" />
+    <Content Include="Content\images\Stories\story_8_2_3.jpg" />
+    <Content Include="Content\images\Stories\story_8_3.jpg" />
+    <Content Include="Content\images\tvapanagan.png" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\freewall.js" />
+    <Content Include="Content\js\function.js" />
+    <Content Include="Content\js\jquery-ui.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.ui.touch-punch.min.js" />
+    <Content Include="Content\js\owl-carousel\AjaxLoader.gif" />
+    <Content Include="Content\js\owl-carousel\grabbing.png" />
+    <Content Include="Content\js\owl-carousel\owl.carousel.css" />
+    <Content Include="Content\js\owl-carousel\owl.carousel.js" />
+    <Content Include="Content\js\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Content\js\owl-carousel\owl.theme.css" />
+    <Content Include="Content\js\owl-carousel\owl.transitions.css" />
+    <Content Include="Content\js\parallax.min.js" />
+    <Content Include="Content\js\sweetalert.min.js" />
+    <Content Include="Content\specialJS\jquery.crosswordgame.js" />
+    <Content Include="Content\specialJS\jquery.magicsquares.js" />
+    <Content Include="Content\specialJS\jquery.sudokugame.js" />
+    <Content Include="Content\specialJS\jquery.wordsearchgame.js" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\css\flat_gray\button_set.png" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\css\flat_gray\keyboard.css" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\css\flat_gray\thumbnail.png" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\css\winxp\button_set.gif" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\css\winxp\keyboard.css" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\css\winxp\thumbnail.png" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\extensions\e.js" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\extensions\scriptqueue.js" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\img\jsvk.gif" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\img\jsvk_off.gif" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\layouts\armenian western.js" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\layouts\layouts.js" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\license.txt" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\virtualkeyboard.js" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\vk_easy.js" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\vk_iframe.js" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\vk_loader.js" />
+    <Content Include="Content\specialJS\VirtualKeyboard.compact.3.7.0\vk_popup.js" />
+    <Content Include="favicon.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="index.html" />
+    <Content Include="Project_Readme.html" />
+    <Content Include="Scripts\ai.0.22.19-build00125.js" />
+    <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\font-awesome\less\animated.less" />
+    <Content Include="Content\fonts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\fonts\font-awesome\less\core.less" />
+    <Content Include="Content\fonts\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\fonts\font-awesome\less\icons.less" />
+    <Content Include="Content\fonts\font-awesome\less\larger.less" />
+    <Content Include="Content\fonts\font-awesome\less\list.less" />
+    <Content Include="Content\fonts\font-awesome\less\mixins.less" />
+    <Content Include="Content\fonts\font-awesome\less\path.less" />
+    <Content Include="Content\fonts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\fonts\font-awesome\less\screen-reader.less" />
+    <Content Include="Content\fonts\font-awesome\less\stacked.less" />
+    <Content Include="Content\fonts\font-awesome\less\variables.less" />
+    <Content Include="Content\fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_core.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_list.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_path.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\fonts\NotoSansArmenian-Bold.eot" />
+    <Content Include="Content\fonts\NotoSansArmenian-Bold.ttf" />
+    <Content Include="Content\fonts\NotoSansArmenian-Bold.woff" />
+    <Content Include="Content\fonts\NotoSansArmenian.eot" />
+    <Content Include="Content\fonts\NotoSansArmenian.ttf" />
+    <Content Include="Content\fonts\NotoSansArmenian.woff" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Models\EPtitDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>EPtitDataClasses.designer.cs</LastGenOutput>
+    </Content>
+    <None Include="Models\EPtitDataClasses.dbml.layout">
+      <DependentUpon>EPtitDataClasses.dbml</DependentUpon>
+    </None>
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="soon.jpg" />
+    <Content Include="Uploads\Articles\article01.jpg" />
+    <Content Include="Uploads\Articles\article20160118.jpg" />
+    <Content Include="Uploads\Articles\articleHealth02.jpg" />
+    <Content Include="Uploads\Articles\articleOne.jpg" />
+    <Content Include="Uploads\Articles\article_20160301_ptit4.jpg" />
+    <Content Include="Uploads\Articles\article_20160510_ptit5.jpg" />
+    <Content Include="Uploads\Articles\health001.jpg" />
+    <Content Include="Uploads\Articles\healthArticle20160118.jpg" />
+    <Content Include="Uploads\Articles\health_20160301_ptit4_1.jpg" />
+    <Content Include="Uploads\Articles\health_20160510_ptit5.jpg" />
+    <Content Include="Uploads\Fables\fable_20160510_f1-0.jpg" />
+    <Content Include="Uploads\Fables\fable_20160510_f1-1.jpg" />
+    <Content Include="Uploads\Fables\fable_20160510_f2-0.jpg" />
+    <Content Include="Uploads\Fables\fable_20160510_f2-1.jpg" />
+    <Content Include="Uploads\Fables\fab_20160301_0.jpg" />
+    <Content Include="Uploads\Fables\fab_20160301_1.jpg" />
+    <Content Include="Uploads\Fables\fab_20160301_2.jpg" />
+    <Content Include="Uploads\Fables\fab_20160301_2_0.jpg" />
+    <Content Include="Uploads\Fables\fab_20160301_2_1.jpg" />
+    <Content Include="Uploads\Fables\p8-0.jpg" />
+    <Content Include="Uploads\Fables\p8-1.jpg" />
+    <Content Include="Uploads\Fables\p9-0.jpg" />
+    <Content Include="Uploads\Fables\p9-1.jpg" />
+    <Content Include="Uploads\Fables\p9-2.jpg" />
+    <Content Include="Uploads\Fables\proverb_7-1.jpg" />
+    <Content Include="Uploads\Fables\proverb_7-2.jpg" />
+    <Content Include="Uploads\Fables\r1_1.jpg" />
+    <Content Include="Uploads\Fables\r1_2.jpg" />
+    <Content Include="Uploads\Fables\r2_1.jpg" />
+    <Content Include="Uploads\Fables\r4_0.png" />
+    <Content Include="Uploads\Fables\r4_1.png" />
+    <Content Include="Uploads\Fables\r5_0.png" />
+    <Content Include="Uploads\Fables\r5_1.png" />
+    <Content Include="Uploads\Fables\r6_0.jpg" />
+    <Content Include="Uploads\Fables\r6_1.jpg" />
+    <Content Include="Uploads\Fables\r6_2.jpg" />
+    <Content Include="Uploads\Fables\r7_0.jpg" />
+    <Content Include="Uploads\Fables\r7_1.jpg" />
+    <Content Include="Uploads\Humor\humor0.jpg" />
+    <Content Include="Uploads\Humor\humor1.jpg" />
+    <Content Include="Uploads\Humor\humor20160118_1.jpg" />
+    <Content Include="Uploads\Humor\humor20160118_2.jpg" />
+    <Content Include="Uploads\Humor\humor_20160301_ptit4_1.jpg" />
+    <Content Include="Uploads\Humor\humor_20160301_ptit4_2.jpg" />
+    <Content Include="Uploads\Humor\humor_20160510_ptit5_1.jpg" />
+    <Content Include="Uploads\Humor\humor_20160510_ptit5_2.jpg" />
+    <Content Include="Uploads\Humor\humor_20161010_ptit7_1.png" />
+    <Content Include="Uploads\Humor\humor_20161010_ptit7_2.png" />
+    <Content Include="Uploads\Humor\humor_20161010_ptit7_2_2.png" />
+    <Content Include="Uploads\Humor\jbid1.jpg" />
+    <Content Include="Uploads\Humor\jbid2.jpg" />
+    <Content Include="Uploads\Humor\jbid3.jpg" />
+    <Content Include="Uploads\Humor\jbid4.jpg" />
+    <Content Include="Uploads\Riddles\Haneloug 9-01.png" />
+    <Content Include="Uploads\Riddles\Haneloug8.png" />
+    <Content Include="Uploads\Riddles\r1.jpg" />
+    <Content Include="Uploads\Riddles\r2.jpg" />
+    <Content Include="Uploads\Riddles\riddle01.jpg" />
+    <Content Include="Uploads\Riddles\riddle20160118.jpg" />
+    <Content Include="Uploads\Riddles\riddles10.png" />
+    <Content Include="Uploads\Riddles\riddles11.png" />
+    <Content Include="Uploads\Riddles\riddles13.png" />
+    <Content Include="Uploads\Riddles\riddles20160620_01.jpg" />
+    <Content Include="Uploads\Riddles\riddle_20160301_ptit4.jpg" />
+    <Content Include="Uploads\Riddles\riddle_20160510_ptit5.jpg" />
+    <Content Include="Uploads\Riddles\riddle_20161010_ptit7.png" />
+    <Content Include="Uploads\Stories\riddle01.jpg" />
+    <Content Include="Uploads\Stories\s1_0.png" />
+    <Content Include="Uploads\Stories\s1_1.png" />
+    <Content Include="Uploads\Stories\s1_2.png" />
+    <Content Include="Uploads\Stories\s1_3.png" />
+    <Content Include="Uploads\Stories\s1_4.png" />
+    <Content Include="Uploads\Stories\s2_0.jpg" />
+    <Content Include="Uploads\Stories\s2_1.jpg" />
+    <Content Include="Uploads\Stories\s2_2.jpg" />
+    <Content Include="Uploads\Stories\s2_3.jpg" />
+    <Content Include="Uploads\Stories\s2_4.jpg" />
+    <Content Include="Uploads\Stories\s3_0.png" />
+    <Content Include="Uploads\Stories\s3_1.png" />
+    <Content Include="Uploads\Stories\s3_2.png" />
+    <Content Include="Uploads\Stories\S4_0.png" />
+    <Content Include="Uploads\Stories\S4_1.png" />
+    <Content Include="Uploads\Stories\S4_2.png" />
+    <Content Include="Uploads\Stories\S4_3.png" />
+    <Content Include="Uploads\Stories\S4_4.png" />
+    <Content Include="Uploads\Stories\S5_0.png" />
+    <Content Include="Uploads\Stories\S5_3.png" />
+    <Content Include="Uploads\Stories\s6-0.jpg" />
+    <Content Include="Uploads\Stories\s6-1.jpg" />
+    <Content Include="Uploads\Stories\s6-2.jpg" />
+    <Content Include="Uploads\Stories\s7-0.jpg" />
+    <Content Include="Uploads\Stories\s7-1.jpg" />
+    <Content Include="Uploads\Stories\s7-2.jpg" />
+    <Content Include="Uploads\Stories\s7-3.jpg" />
+    <Content Include="Uploads\Stories\story_20160301_1_0.jpg" />
+    <Content Include="Uploads\Stories\story_20160301_1_1.jpg" />
+    <Content Include="Uploads\Stories\story_20160301_1_2.jpg" />
+    <Content Include="Uploads\Stories\story_20160301_1_3.jpg" />
+    <Content Include="Uploads\Stories\story_20160301_2_0.jpg" />
+    <Content Include="Uploads\Stories\story_20160301_2_1.jpg" />
+    <Content Include="Uploads\Stories\story_20160301_2_2.jpg" />
+    <Content Include="Uploads\Stories\story_20160510_s1-0.jpg" />
+    <Content Include="Uploads\Stories\story_20160510_s1-1.jpg" />
+    <Content Include="Uploads\Stories\story_20160510_s1-2.jpg" />
+    <Content Include="Uploads\Stories\story_20160510_s2-0.jpg" />
+    <Content Include="Uploads\Stories\story_20160510_s2-1.jpg" />
+    <Content Include="Uploads\Stories\story_20160510_s2-2.jpg" />
+    <Content Include="Uploads\Stories\story_7-1-1.jpg" />
+    <Content Include="Uploads\Stories\story_7-1-2.jpg" />
+    <Content Include="Uploads\Stories\story_7-2-1.jpg" />
+    <Content Include="Uploads\Stories\story_7-2-2.jpg" />
+    <Content Include="Uploads\Stories\story_8_1.jpg" />
+    <Content Include="Uploads\Stories\story_8_2.jpg" />
+    <Content Include="Uploads\Stories\story_8_2_1.jpg" />
+    <Content Include="Uploads\Stories\story_8_2_2.jpg" />
+    <Content Include="Uploads\Stories\story_8_2_3.jpg" />
+    <Content Include="Uploads\Stories\story_8_3.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54462</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54462/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

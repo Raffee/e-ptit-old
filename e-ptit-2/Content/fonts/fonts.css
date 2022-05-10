@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'NotoSansArmenian';
+  src: url('NotoSansArmenian.eot?#iefix') format('embedded-opentype'),  url('NotoSansArmenian.woff') format('woff'), url('NotoSansArmenian.ttf')  format('truetype'), url('NotoSansArmenian.svg#NotoSansArmenian') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansArmenian-Bold';
+  src: url('NotoSansArmenian-Bold.eot?#iefix') format('embedded-opentype'),  url('NotoSansArmenian-Bold.woff') format('woff'), url('NotoSansArmenian-Bold.ttf')  format('truetype'), url('NotoSansArmenian-Bold.svg#NotoSansArmenian-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

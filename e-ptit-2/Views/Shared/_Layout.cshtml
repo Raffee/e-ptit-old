@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ՓԹԻԹ - @ViewBag.Title</title>
+    <link rel="shortcut icon" href="~/Content/images/favicon.png" />
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/js/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/js/owl-carousel/owl.transitions.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/fonts/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/template.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/sweetalert.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="~/Content/specialJS/VirtualKeyboard.compact.3.7.0/vk_loader.js?vk_layout=AM%20Armenian%20Western&vk_skin=flat_gray"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/fireworks/style/fireworks.css" media="screen" />
+    <script type="text/javascript" src="~/Content/fireworks/script/soundmanager.js"></script>
+    <script type="text/javascript" src="~/Content/fireworks/script/fireworks.js"></script>
+    <script type="text/javascript" src="~/Content/js/sweetalert.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+    @RenderSection("styles", required: false)
+
+    <style type="text/css">
+        .bs-example {
+            margin: 150px 50px;
+        }
+
+        .popover {
+            border: 1px dotted red;
+        }
+
+        .popover-content {
+            background-color: coral;
+            color: #FFFFFF;
+        }
+    </style>
+    <script type="text/javascript">
+        var appInsights = window.appInsights || function (config) {
+            function r(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = u.createElement(o), i, f; for (s.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", u.getElementsByTagName(o)[0].parentNode.appendChild(s), t.cookie = u.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace", "Ajax"]; i.length;) r("track" + i.pop()); return r("setAuthenticatedUserContext"), r("clearAuthenticatedUserContext"), config.disableExceptionTracking || (i = "onerror", r("_" + i), f = e[i], e[i] = function (config, r, u, e, o) { var s = f && f(config, r, u, e, o); return s !== !0 && t["_" + i](config, r, u, e, o), s }), t
+        }({
+            instrumentationKey: "79f0ecab-d4f4-40c1-9ded-a470992b2c66"
+        });
+
+        window.appInsights = appInsights;
+        appInsights.trackPageView();
+    </script>
+    @RenderSection("headerScrips", required: false)
+</head>
+
+<body>
+    <header>
+        <div class="header-bg">
+            <div class="header-icon icon-1"></div>
+            <div class="header-icon icon-2"></div>
+            <div class="header-icon icon-3"></div>
+            <div class="header-icon icon-4"></div>
+            <a href="~/" class="logo"><img src="~/Content/images/logo.png" class="logo" /><img src="~/Content/images/logo-text.png" /></a>
+        </div>
+        @Html.ActionLink(linkText: "Մեր Մասին", actionName: "About", controllerName: "Home", routeValues: null, htmlAttributes: new
+   {
+       @class = "top-link left"
+   })
+        @Html.ActionLink(linkText: "Download App", actionName: "Download", controllerName: "Home", routeValues: null, htmlAttributes: new
+   {
+       @class = "top-link right"
+   })
+
+    </header>
+    <a href="javascript:void(0)" class="nav-toggle"><i class="fa fa-bars"></i></a>
+    <ul id="nav">
+        <li class="has-submenu">
+            <a href="#"><img src="~/Content/images/nav-icon-1.png" style="max-width:44px; height:auto;" />Յօդուածներ</a>
+            <ul>
+                <li><a href="!/Articles/Index/1" onclick="document.location.href='/Articles/Index/1'">Խմբագրական</a></li>
+                <li><a href="~/Articles/Index/2" onclick="document.location.href='/Articles/Index/2'">Առողջապահական</a></li>
+            </ul>
+        </li>
+        <li><a href="~/LanguageGames"><img src="~/Content/images/nav-icon-2.png" style="max-width:37px; height:auto;" /> Լեզուական Խաղեր</a></li>
+        <li><a href="~/Stories"><img src="~/Content/images/nav-icon-3.png" style="max-width:46px; height:auto;" />Պատմութիւններ </a></li>
+        <li><a href="~/Fables"><img src="~/Content/images/nav-icon-4.png" style="max-width:44px; height:auto;" />Առակներ </a></li>
+        <li><a href="~/MathGames"><img src="~/Content/images/nav-icon-5.png" style="max-width:44px; height:auto;" /> Թուաբանական խաղեր</a></li>
+        <li><a href="~/LogicalGames"><img src="~/Content/images/nav-icon-6.png" style="max-width:40px; height:auto;" /> Տրամաբանութեան խաղեր</a></li>
+        <li><a href="~/OtherGames"><img src="~/Content/images/nav-icon-7.png" style="max-width:44px; height:auto;" /> Ժամանցի խաղեր</a></li>
+        <li><a href="~/Humors"><img src="~/Content/images/nav-icon-8.png" style="max-width:42px; height:auto;" /> Ժպիտներ</a></li>
+        <li><a href="~/Riddles"><img src="~/Content/images/nav-icon-9.png" style="max-width:44px; height:auto;" />Հանելուկներ </a></li>
+    </ul>
+    <div class="clr"></div>
+    <div>
+        <div id="sound">
+        </div>
+
+        <div id="fireworks-template">
+            <div id="fw" class="firework"></div>
+            <div id="fp" class="fireworkParticle">
+                <img src="../../Content/fireworks/image/particles.gif" alt="" />
+            </div>
+        </div>
+
+        <div id="fireContainer"></div>
+    </div>
+    @if (!String.IsNullOrEmpty(ViewBag.BannerImage))
+    {
+        <div class="entry-header parallax-window" style="background:url(@ViewBag.BannerImage) no-repeat top center; background-size:cover;">
+            <div class="display-table">
+                <div class="vertical-center">
+                    <h1><span>@ViewBag.Title</span></h1>
+                </div>
+            </div>
+        </div>
+    }
+    @if (ViewBag.PageType == "HomePage")
+    {
+        @RenderBody()
+        <div class="clr"></div>
+    }
+    else
+    {
+        <div id="inner-container">
+            <div class="ptit-container">
+                @RenderBody()
+                <div class="clr"></div>
+            </div>
+        </div>
+    }
+    <footer>
+        <div class="ptit-container">
+            <div class="row">
+                <div class="col-2">
+                    <p>Social Media</p>
+                    <div class="social-share">
+                        <a href="https://www.facebook.com/ptitmagazine/" target="_blank"><i class="fa fa-facebook"></i></a>
+
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <p>Download Our App</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="https://goo.gl/gg4yCa" target="_blank">
+                                <img src="/Content/images/googleplay.png" style="width: 60%;">
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="https://goo.gl/k9x3vw" target="_blank">
+                                <img src="/Content/images/appstore.png" style="width: 60%;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 copywrite" style="text-align: left;">
+                    @Html.ActionLink("Contact us", "Contact", "Home", null, new
+               {
+                   @class = "top-link center"
+               })
+                    <br /><br />
+                    Copyright © @DateTime.Now.Year.ToString() PTIT. All rights reserved.
+                </div>
+                    <a href="https://gulbenkian.pt/" target="_blank" style="color: white;">
+                        <div class="col-3">
+                            <p>Our Sponsor </p>
+                            ՓԹԻԹ-ի այս կայքը ֆինանսաւորուած է Գալուստ Կիւլպէնկեան Հիմնարկութեան կողմէ
+                        </div>
+                    </a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="~/Content/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/owl-carousel/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".owlcarousel").owlCarousel({
+                pagination: false,
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+            });
+            $('.nav-toggle').click(function (e) {
+                $('ul#nav').slideToggle();
+                $(this).toggleClass('active');
+            });
+            $(window).resize(function () {
+                if ($(window).width() > 800) {
+                    $('ul#nav').show();
+                } else {
+                    $('ul#nav').hide();
+                    $('.nav-toggle').removeClass('active');
+                }
+            });
+
+            $('.has-submenu a').click(function (e) {
+                $(this).parents('li').children('ul').slideToggle();
+                return false;
+            });
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover({
+                placement: 'top',
+                trigger: 'hover'
+            });
+        });
+    </script>
+
+    <!-- Start of StatCounter Code for Default Guide -->
+    <script type="text/javascript">
+        var sc_project = 10903393;
+        var sc_invisible = 0;
+        var sc_security = "ce286f9d";
+        var scJsHost = (("https:" == document.location.protocol) ?
+        "https://secure." : "http://www.");
+        document.write("<sc" + "ript type='text/javascript' src='" +
+        scJsHost +
+        "statcounter.com/counter/counter.js'></" + "script>");
+    </script>
+    <noscript>
+        <div class="statcounter">
+            <a title="web analytics"
+               href="http://statcounter.com/" target="_blank">
+                <img class="statcounter"
+                     src="//c.statcounter.com/10903393/0/ce286f9d/0/" alt="web
+analytics" />
+            </a>
+        </div>
+    </noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+</body>
+</html>

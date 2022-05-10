@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<e_ptit_2.Models.Proverb>
+<div class="container">
+    <h1 class="entry-title text-center"><img src="Content/images/newfables.png" style=" max-width:244px; height:auto;" /></h1>
+    <div class="owl-carousel owlcarousel blue">
+        @foreach (e_ptit_2.Models.Proverb proverb in Model)
+        {
+            <div class="item">
+                <div class="hero-content">
+                    <div class="col-5 img-holder" style="background:url(Content/images/Fables/b_@proverb.ImageName) no-repeat center center"></div>
+                    <div class="col-7 pull-right">
+                        <div class="display-table">
+                            <div class="vertical-center">
+                                <h3 class="">@proverb.title.ToUpperInvariant()</h3>
+                                <p>@Html.Raw(proverb.summary)</p>
+                                @Html.ActionLink(
+    linkText: "կարդալ ամբողջութեամբ",
+    actionName: "Read",
+    controllerName: "Fables",
+    routeValues: new
+    {
+        Id = proverb.pkProverbId
+    },
+    htmlAttributes: new
+    {
+        @class = "btn blue"
+    }
+)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

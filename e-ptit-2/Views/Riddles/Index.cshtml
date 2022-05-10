@@ -1,0 +1,463 @@
+﻿@model IEnumerable<e_ptit_2.Models.Riddle>
+@{
+    ViewBag.Title = "Հանելուկներ";
+    ViewBag.BannerImage = "../Content/images/haneloug.jpg";
+}
+
+    <div id="gallery-grid" style="background-color:#f9f7f4;color:#f75e74;border-left:1px solid #808080;border-right:1px solid #808080;">
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-center">
+                        <img src="../Content/images/Humor/@item.Name" />
+                    </h4>
+                </div>
+            </div>
+            <br />
+            <br />
+        }
+    
+
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="text-center">
+                <img src="~/Content/images/Riddles/riddles22.png" style="width:100%">
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><button onclick="toggleTargetControl('answer22');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+        <div class="col-md-8 answer22 text-left" id="answer22" style="display:none;">
+            <ul class="list-group" style="font-weight:500;">
+                <li class="list-group-item">1- աչք</li>
+                <li class="list-group-item">2- ժամացոյց</li>
+                <li class="list-group-item">3- Քարտէս</li>
+                <li class="list-group-item">4- օձ</li>
+                <li class="list-group-item">5- ասեղ</li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <br />
+    
+    
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="text-center">
+                <img src="~/Content/images/Riddles/riddles21.png" style="width:100%">
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"><button onclick="toggleTargetControl('answer21');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+        <div class="col-md-8 answer21 text-left" id="answer21" style="display:none;">
+            <ul class="list-group" style="font-weight:500;">
+                <li class="list-group-item">1- դ տառը</li>
+                <li class="list-group-item">2- լեզու</li>
+                <li class="list-group-item">3- խարիսխ</li>
+                <li class="list-group-item">4- փիղ</li>
+                <li class="list-group-item">5- ամպ</li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <br />
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddles20.png" style="width:100%">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer20');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer20 text-left" id="answer20" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- աշուն</li>
+                    <li class="list-group-item">2- ծիրան</li>
+                    <li class="list-group-item">3- բարձ</li>
+                    <li class="list-group-item">4- մատներ</li>
+                    <li class="list-group-item">5- մոմ</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddles18.png" style="width:100%">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer18');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer18 text-left" id="answer18" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- ժամանակ</li>
+                    <li class="list-group-item">2- հաւկիթ</li>
+                    <li class="list-group-item">3- կրակ</li>
+                    <li class="list-group-item">4- քամի</li>
+                    <li class="list-group-item">5- շուք</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddles16.png" style="width:100%">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer16');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer16 text-left" id="answer16" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- ալիք</li>
+                    <li class="list-group-item">2- կրիայ</li>
+                    <li class="list-group-item">3- դգալ</li>
+                    <li class="list-group-item">4- կայծակ</li>
+                    <li class="list-group-item">5- ձիւն</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddles15.png" style="width:100%">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer15');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer15 text-left" id="answer15" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- լոյս</li>
+                    <li class="list-group-item">2- գանկ (ԾՈՎԱՀԷՆ- ծովերու աւազակ,նաւային յելուզակ)</li>
+                    <li class="list-group-item">3- լուցկի</li>
+                    <li class="list-group-item">4- դրամ</li>
+                    <li class="list-group-item">5- բազկաթոռ</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddles14.png" style="width:100%">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer14');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer14 text-left" id="answer14" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- սառոյց</li>
+                    <li class="list-group-item">2- հայելի</li>
+                    <li class="list-group-item">3- սղոց</li>
+                    <li class="list-group-item">4- ծառ</li>
+                    <li class="list-group-item">5- սոխ</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddles13.png" style="width:100%">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer13');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer13 text-left" id="answer13" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- գիրք</li>
+                    <li class="list-group-item">2- գաղտնիք</li>
+                    <li class="list-group-item">3- երէկ, այսօր, վաղը</li>
+                    <li class="list-group-item">4- յիշատակ</li>
+                    <li class="list-group-item">5- Շաբաթ</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddles11.png" style="width:100%">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer12');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer12 text-left" id="answer12" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- երկինք</li>
+                    <li class="list-group-item">2- արձագանգ</li>
+                    <li class="list-group-item">3- ամպ</li>
+                    <li class="list-group-item">4- խաղաթուղթ, խաղաքարտ</li>
+                    <li class="list-group-item">5- արգելք ունի՞ս</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddles10.png" style="width:100%">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer11');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer11 text-left" id="answer11" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- Զանգ կամ հեռաձայն</li>
+                    <li class="list-group-item">2- տարիք</li>
+                    <li class="list-group-item">3- խոստում</li>
+                    <li class="list-group-item">4- աղմուկ</li>
+                    <li class="list-group-item">5- հաւկիթ</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/Haneloug 9-01.png">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer9');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer9 text-left" id="answer9" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- հովանոց</li>
+                    <li class="list-group-item">2- հայելիին առջեւ դնել</li>
+                    <li class="list-group-item">3- ցանկապատ</li>
+                    <li class="list-group-item">4- ագեվազ</li>
+                    <li class="list-group-item">5- Փետրուար</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/Haneloug8.png">
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer7');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer7 text-left" id="answer7" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- սառնարան</li>
+                    <li class="list-group-item">2- հայելի</li>
+                    <li class="list-group-item">3- հնդկահաւ</li>
+                    <li class="list-group-item">4- ճաշ եւ ընթրիք</li>
+                    <li class="list-group-item">5- ա  տառը</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddle_20161010_ptit7.png" style="width:100%">
+                </h4>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer7');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer7 text-left" id="answer7" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- հորիզոն</li>
+                    <li class="list-group-item">2- երաժշտութիւն</li>
+                    <li class="list-group-item">3- հրավառութիւն</li>
+                    <li class="list-group-item">4- ցաւ</li>
+                    <li class="list-group-item">5- ժամացոյց</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddles20160620_01.jpg">
+                </h4>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer6');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer6 text-left" id="answer6" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- կօշիկ, սանտալ</li>
+                    <li class="list-group-item">2- արձագանգ  </li>
+                    <li class="list-group-item">3- մկրատ</li>
+                    <li class="list-group-item">4- ովասիս</li>
+                    <li class="list-group-item">5- եղանակ</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddle_20160510_ptit5.jpg">
+                </h4>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer5');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer5 text-left" id="answer5" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- շունչ</li>
+                    <li class="list-group-item">2- ձեռնոց</li>
+                    <li class="list-group-item">3- թուղթ</li>
+                    <li class="list-group-item">4- անցեալ</li>
+                    <li class="list-group-item">5- (ծակ, փոս)</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddle_20160301_ptit4.jpg">
+                </h4>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer5');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer5 text-left" id="answer5" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- գրատախտակ</li>
+                    <li class="list-group-item">2- անուն</li>
+                    <li class="list-group-item">3- ծիածան</li>
+                    <li class="list-group-item">4- փամփուշտ</li>
+                    <li class="list-group-item">5- ճանճ</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">
+                    <img src="~/Content/images/Riddles/riddle20160118.jpg">
+                </h4>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer5');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer5 text-left" id="answer5" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- բարձ</li>
+                    <li class="list-group-item">2- այբուբեն</li>
+                    <li class="list-group-item">3- ծառ</li>
+                    <li class="list-group-item">4- զանգակ</li>
+                    <li class="list-group-item">5- օդ</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="~/Content/images/Riddles/riddle01.jpg">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer4');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer4 text-left" id="answer4" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- աստղ</li>
+                    <li class="list-group-item">2- ձեռնոց</li>
+                    <li class="list-group-item">3- մոմ</li>
+                    <li class="list-group-item">4- շուք</li>
+                    <li class="list-group-item">5- ժամացոյց</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="~/Media/riddles/r1.jpg" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2"><button onclick="toggleTargetControl('answer3');" id="getAnswer" class="btn btn-info">պատասխան </button></div>
+            <div class="col-md-8 answer3 text-left" id="answer3" style="display:none;">
+                <ul class="list-group" style="font-weight:500;">
+                    <li class="list-group-item">1- ծխնելոյզ</li>
+                    <li class="list-group-item">2- հովանոց</li>
+                    <li class="list-group-item">3- ցոլացում</li>
+                    <li class="list-group-item">4- ժամացոյց</li>
+                    <li class="list-group-item">5- «ա» տառը</li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+<script>
+    function toggleTargetControl(targetName) {
+        $("." + targetName).toggle();
+    }
+
+</script>

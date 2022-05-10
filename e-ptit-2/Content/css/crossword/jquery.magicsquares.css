@@ -1,0 +1,87 @@
+
+/* Style for grid cells */
+.rf-tgrid {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 1px;
+    padding: 10px;
+    /*    border: 1px solid bisque;*/
+    vertical-align: middle;
+    text-align: center;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+table.crossword td {
+    width: 55px;
+    height: 55px;
+    border: 2px solid #0c2d69;
+    font-size: 30px;
+    color: black;
+}
+
+h3, h4 {
+    color: black;
+}
+
+.rf-main-container {
+    padding-left: 30px;
+    padding-top: 6px;
+    background-color: #bb9dc6;
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: left;
+    background-image: url("../../images/games/other/logic/wizard.png");
+    text-align: center;
+    margin: 10px;
+    height: 300px;
+}
+
+/* Style for the grid */
+.rf-tablestyle {
+    border: 2px solid;
+    border-color: #0c2d69;
+    background-color: #d89ec4;
+    cursor: pointer;
+    color: black;
+}
+
+/* Style for the div containing the grid */
+#rf-searchgamecontainer {
+    float: left;
+    padding-right: 50px;
+}
+
+
+/* style for words that didn't make it on the grid */
+.rf-pfalse {
+    color: gray;
+    visibility: hidden;
+}
+
+.td-basic {
+    height: 55px !important;
+    width: 55px !important;
+}
+
+
+table.crossword {
+    border: 0;
+}
+
+strikeout {
+    text-decoration: line-through;
+}
+
+
+table.crossword input {
+    border: 0;
+    width: 50px;
+    font-size: 30px;
+    color: #0c2d69;
+    background-color: #d89ec4;
+    text-align: center;
+}

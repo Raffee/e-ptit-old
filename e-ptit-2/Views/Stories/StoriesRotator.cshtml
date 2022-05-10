@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<e_ptit_2.Models.Story>
+<div class="container">
+    <h1 class="entry-title text-center"><img src="Content/images/newstories.png" style=" max-width:424px; height:auto;" /></h1>
+    <div class="owl-carousel owlcarousel">
+        @foreach (e_ptit_2.Models.Story story in Model)
+        {
+            <div class="item">
+                <div class="hero-content">
+                    <div class="col-5 img-holder" style="background:url(Content/images/Stories/@String.Format("b_{0}", story.ImageName)) no-repeat center center"></div>
+                    <div class="col-7 pull-right">
+                        <div class="display-table">
+                            <div class="vertical-center">
+                                <h3 class="">@story.title.ToUpperInvariant()</h3>
+                                <p>@Html.Raw(story.summary)</p>
+                                @Html.ActionLink(
+    linkText: "կարդալ ամբողջութեամբ",
+    actionName: "Read",
+    controllerName: "Stories",
+    routeValues: new
+    {
+        Id = story.pkStoryId
+    },
+    htmlAttributes: new
+    {
+        @class = "btn"
+    }
+)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

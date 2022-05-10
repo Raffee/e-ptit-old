@@ -1,0 +1,101 @@
+﻿@model IEnumerable<e_ptit_2.Models.Article>
+@{
+    ViewBag.BannerImage = "../../Content/images/hotvadzner.png";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            placement: 'top',
+            trigger: 'hover'
+        });
+    });
+</script>
+<style type="text/css">
+    .bs-example {
+        margin: 150px 50px;
+    }
+
+    .popover {
+        border: 1px dotted red;
+    }
+
+    .popover-content {
+        background-color: coral;
+        color: #FFFFFF;
+        font-size: 17px;
+    }
+</style>
+<style>
+    .table th, .table td {
+        border-top: none !important;
+    }
+
+    .table tbody > tr > td.vert-align {
+        vertical-align: bottom;
+    }
+</style>
+<style>
+    .table th, .table td {
+        border-top: none !important;
+    }
+
+    .table tbody > tr > td.vert-align {
+        vertical-align: bottom;
+    }
+</style>
+
+<div class="stories-grid">
+    @foreach (var article in Model)
+    {
+            string color = "#e13f3f";
+            if (article.Type == 2)
+            {
+                color = "#fadb60";
+            }
+
+            <div class="row" style="background-color:@color;padding-bottom:20px;padding-top:20px;width:100%;">
+                <div class="col-md-2"></div>
+                <div class="col-md-9">
+                    @Html.Raw(article.HTMLContent + article.HTMLContent2)
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+    }
+</div>
+
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".owlcarousel").owlCarousel({
+                pagination: false,
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+            });
+            $('.nav-toggle').click(function (e) {
+                $('ul#nav').slideToggle();
+                $(this).toggleClass('active');
+            });
+            $(window).resize(function () {
+                if ($(window).width() > 800) {
+                    $('ul#nav').show();
+                } else {
+                    $('ul#nav').hide();
+                    $('.nav-toggle').removeClass('active');
+                }
+            });
+
+            $('.has-submenu a').click(function (e) {
+                $(this).parents('li').children('ul').slideToggle();
+                return false;
+            });
+
+
+
+        });
+    </script>
+}

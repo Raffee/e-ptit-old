@@ -1,0 +1,163 @@
+
+/* Style for grid cells */
+.rf-tgrid {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 1px;
+    padding: 10px;
+    /*    border: 1px solid bisque;*/
+    background-color: #ffffff;
+    vertical-align: middle;
+    text-align: center;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.rf-main-container {
+    padding-left: 55px;
+    padding-top: 6px;
+    padding-bottom: 20px;
+    background-color: #c1cf00;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: left;
+    text-align: center;
+}
+
+/* Style for the div containing the grid */
+#rf-searchgamecontainer {
+    float: left;
+    padding-right: 30px;
+}
+
+/* Style for the div containing the word list */
+#rf-wordcontainer {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    float: left;
+    padding-left: 20px;
+    cursor: default;
+    margin: 1em 1em 1em 0;
+    background-color: #e05114;
+    color: #3e3966;
+    font-weight: bold;
+    border: 2px solid;
+    border-color: #ffffff;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: left;
+}
+
+/* Style for the words that have been found */
+.rf-foundword {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    text-decoration: line-through;
+    color: #c1cf00;
+    font-style: italic;
+    background-color: #0c2d69;
+}
+
+#rf-tablegrid .rf-armed {
+    /*	background: lightcyan;*/
+}
+
+#rf-tablegrid .rf-highlight {
+    background: red;
+}
+
+#rf-tablegrid .rf-highlight input {
+    background: red;
+    width: 50px !important;
+}
+
+
+#rf-tablegrid .rf-glowing {
+    background: greenyellow;
+}
+
+#rf-tablegrid .rf-selected {
+    background: #0c2d69;
+}
+
+/* style for words that didn't make it on the grid */
+.rf-pfalse {
+    color: gray;
+    visibility: hidden;
+}
+
+.rf-ptrue{
+    padding-bottom: 17px;
+    text-align: left;
+}
+
+.td-basic {
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.undefined {
+    height: 30px !important;
+    width: 30px !important;
+}
+
+
+table.crossword td {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #95c33f;
+    color: #0c2d69;
+    font-size: 23px;
+    background-color: #fff;
+}
+
+table.crossword input {
+    border: 0;
+    width: 30px;
+    font-size: 23px;
+    color: #0c2d69;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+table.crossword {
+    border: 0;
+}
+
+strikeout {
+    text-decoration: line-through;
+}
+
+
+table.crossword td.black {
+    background-color: black;
+}
+
+table.crossword td.invisi {
+    border: 0;
+    color: red;
+    visibility: hidden;
+}
+
+
+ul.hints li {
+    font-size: 25px;
+    color: #0c2d69;
+    text-align: left;
+}
+
+.row-number {
+    border-width: 0 !important;
+    background-color: transparent !important;
+}
+
+.one_special {
+    background-image: url("../../images/games/crossword/numbers/black/one10.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: 0 0 !important;
+}

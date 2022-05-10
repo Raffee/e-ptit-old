@@ -1,0 +1,119 @@
+﻿@using Newtonsoft.Json
+
+@model e_ptit_2.Models.FindDifferenceGame
+@{
+    ViewBag.Title = "Տարբերութեան Խաղ";
+}
+
+<div>
+    <div id="sound">
+    </div>
+
+    <div id="fireworks-template">
+        <div id="fw" class="firework"></div>
+        <div id="fp" class="fireworkParticle">
+            <img src="../../Content/fireworks/image/particles.gif" alt="" />
+        </div>
+    </div>
+
+    <div id="fireContainer"></div>
+</div>
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+            <h2>@Model.Title.ToUpperInvariant()</h2>
+            <br />
+            <h3>@Model.Description</h3>
+        </div>
+    </div>
+    <br />
+    <div class="row" style="cursor: pointer;">
+
+        <div class="col-md-4" runat="server" id="div1">
+            @Html.Raw(String.Format(Model.HTML1, Model.Picture1))
+        </div>
+        <div class="col-md-2" style="vertical-align: bottom;">
+            <a id="lnkAns" href="#" runat="server" class="btn btn-info" style="font-size: 15px !important;">@e_ptit_2.Helpers.Constants.SHOW_ANSWER</a>
+        </div>
+
+        <div class="col-md-4" runat="server" id="div2">
+            @Html.Raw(String.Format(Model.HTML2, Model.Picture2))
+        </div>
+    </div>
+</div>
+
+<audio id="myAudio">
+    <source src="../../Content/audio/correct.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioApplause">
+    <source src="../../Content/audio/win.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioSanta">
+    <source src="../../Content/audio/tadaa1.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+
+@section scripts {
+    <script type="text/javascript" src="../../Content/js/jquery-ui.js"></script>
+
+    <script>
+
+        if (typeof (soundManagerInit) != 'undefined') soundManagerInit();
+
+        function DoFireworks() {
+            var r = 4 + parseInt(Math.random() * 16);
+            for (var i = r; i--;) {
+                setTimeout('createFirework(50,200,4,null,null,null,null,null,Math.random()>0.5,true)', (i + 1) * (1 + parseInt(Math.random() * 1000)));
+            }
+            return false;
+        }
+
+        function playSound() {
+            var vid = document.getElementById("myAudio");
+            vid.play();
+        }
+
+        function playApplause() {
+            var vid = document.getElementById("audioApplause");
+            var hohoho = document.getElementById("audioSanta");
+            hohoho.play();
+            vid.play();
+        }
+
+        function markAnswered(elemt) {
+            playSound();
+            var myObj = $(elemt);
+            var diffId = myObj.attr("data-diff-id");
+
+            var sameDiff = $("area[data-diff-id='" + diffId + "']");
+            for (var i = 0; i < sameDiff.length; i++) {
+                $(sameDiff[i]).attr("data-is-solved", "true");
+            }
+            checkIfCompleted();
+        }
+
+        function checkIfCompleted() {
+            debugger;
+            var toSolve = $("area[data-is-solved='false']");
+            //alert(toSolve.length);
+            if (toSolve.length == 0) {
+                {
+                    DoFireworks();
+                    playApplause();
+                }
+            }
+        }
+
+        $('#lnkAns').click(function () {
+            debugger;
+            var prms = {};
+            prms.title = '@e_ptit_2.Helpers.Constants.SHOW_ANSWER';
+            prms.text = '<img height="500px" src="../../Content/images/Games/@Model.PictureAnswer" id="ContentPlaceHolder1_imgAnswer">';
+            prms.html = 'true';
+            swal(prms);
+        });
+    </script>
+}

@@ -1,0 +1,145 @@
+﻿
+@model e_ptit_2.Models.SelectOneViewModel
+
+@{
+    ViewBag.Title = "Ընտրել Մէկը";
+}
+
+<div>
+    <div id="sound">
+    </div>
+
+    <div id="fireworks-template">
+        <div id="fw" class="firework"></div>
+        <div id="fp" class="fireworkParticle">
+            <img src="../../Content/fireworks/image/particles.gif" alt="" />
+        </div>
+    </div>
+
+    <div id="fireContainer"></div>
+</div>
+<div class="row">
+    <div class="col-md-12" style="text-align: center;">
+        <h2>@Model.Title.ToUpperInvariant()</h2>
+        <br />
+        <h3>@Model.Description</h3>
+    </div>
+</div>
+<br />
+<div class="row" style="padding-left: 30px;">
+    <div id="rpt-container" style="width: 100%; padding-left:10%; text-align: center !important; @Model.Style">
+        @foreach (var game in Model.Games)
+        {
+            <div class="row">
+                @foreach (var answer in game.Answers)
+                {
+                    {
+                        string onclick = "playErrorSound()";
+                        string style = string.IsNullOrEmpty(answer.AnswerStyle) ? game.AnswerStyle : answer.AnswerStyle ;
+                        string bg = string.IsNullOrEmpty(answer.AnswerBG) ? game.AnswerBackgroundImage : answer.AnswerBG;
+                        string content = string.IsNullOrEmpty(answer.AnswerHTML) ? (string.IsNullOrEmpty(answer.AnswerText)?"":answer.AnswerText) : answer.AnswerHTML;
+                        if (answer.isCorrectAnswer)
+                        {
+                            onclick = "guessedAnswer('divA" + answer.pkSelectGameAnswerID + "')";
+                        }
+                        string solved = (answer.isCorrectAnswer) ? "false" : "true";
+                        <div id="@string.Format("divA{0}", answer.pkSelectGameAnswerID)" class="pull-left col-md-2" onclick="@onclick" data-is-solved="@solved"
+                             style="@style; background-image:url('../../Content/images/games/@bg');">
+                            @content
+                        </div>
+                    }
+                }
+            </div>
+            if (Model.ShowAnswerButton)
+            {
+            <div class="row">
+                <div class="col-md-2">
+                    <a id="lnkAns" href="#" runat="server" onclick="showAnswer('@game.Answer')" class="btn btn-info small pink danger">@e_ptit_2.Helpers.Constants.SHOW_ANSWER</a>
+                </div>
+            </div>
+            }
+            <div class="row" style="padding: 25px;">&nbsp;</div>
+        }
+    </div>
+</div>
+
+<audio id="myAudio">
+    <source src="../../Content/audio/correct.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioApplause">
+    <source src="../../Content/audio/win.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioSanta">
+    <source src="../../Content/audio/tadaa1.wav" type="audio/wav" />
+    Your browser does not support audio!
+</audio>
+<audio id="audioError">
+    <source src="../../Content/audio/incorrect.mp3" type="audio/mp3" />
+    Your browser does not support audio!
+</audio>
+
+@section scripts {
+    <script type="text/javascript" src="../../Content/js/jquery-ui.js"></script>
+
+    <script>
+
+        if (typeof (soundManagerInit) != 'undefined') soundManagerInit();
+
+        function DoFireworks() {
+            var r = 4 + parseInt(Math.random() * 16);
+            for (var i = r; i--;) {
+                setTimeout('createFirework(50,200,4,null,null,null,null,null,Math.random()>0.5,true)', (i + 1) * (1 + parseInt(Math.random() * 1000)));
+            }
+            return false;
+        }
+
+        function playSound() {
+            var vid = document.getElementById("myAudio");
+            vid.play();
+        }
+
+        function playApplause() {
+            var vid = document.getElementById("audioApplause");
+            var hohoho = document.getElementById("audioSanta");
+            hohoho.play();
+            vid.play();
+        }
+
+        function playErrorSound() {
+            var vid = document.getElementById("audioError");
+            vid.play();
+        }
+
+        function guessedAnswer(divId) {
+            debugger;
+            var divAnswer = $('#' + divId);
+
+            playSound();
+            divAnswer.attr("data-is-solved", "true");
+            checkIfCompleted();
+
+        }
+
+        function checkIfCompleted() {
+            debugger;
+            var toSolve = $("div[data-is-solved='false']");
+            if (toSolve.length == 0) {
+                {
+                    DoFireworks();
+                    playApplause();
+                }
+            }
+        }
+
+        function showAnswer(answer) {
+            debugger;
+            var prms = {};
+            prms.title = '@e_ptit_2.Helpers.Constants.SHOW_ANSWER';
+            prms.text = answer;
+            swal(prms);
+        }
+
+    </script>
+}

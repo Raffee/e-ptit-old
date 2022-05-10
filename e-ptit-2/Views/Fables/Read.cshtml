@@ -1,0 +1,56 @@
+﻿
+@model e_ptit_2.Models.ProverbViewModel
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover({
+            placement: 'top',
+            trigger: 'hover'
+        });
+    });
+</script>
+<style type="text/css">
+    .bs-example {
+        margin: 150px 50px;
+    }
+
+    .popover {
+        border: 1px dotted red;
+    }
+
+    .popover-content {
+        background-color: coral;
+        color: #FFFFFF;
+    }
+</style>
+
+
+<div class="col-8 padding-right-40">
+    <h3 class="entry-title">@Model.Proverb.title</h3>
+    @foreach (var itm in Model.ContentList)
+    {
+        if (itm.ImageName != null && !itm.ImageName.Equals("noImage.png", StringComparison.OrdinalIgnoreCase))
+        {
+            <img src="~/Content/Images/Fables/@itm.ImageName" class="responsive margin-bottom-20" />
+        }
+        <p>
+            @Html.Raw(itm.pageContent)
+        </p>
+    }
+</div>
+<div class="col-4">
+    <ul class="sidebar-nav">
+        @foreach (var proverb in Model.RelatedProverbs)
+        {
+            <li style="padding-bottom: 10px;">
+                @Html.ActionLink(proverb.title.ToUpperInvariant(), "Read", new { id = proverb.pkProverbId })
+                <div class="img-wrp">
+                    <img src="@Url.Content("~/Content/images/Fables/" + @Html.ValueFor(modelItem => proverb.ImageName))" />
+                </div>
+            </li>
+
+        }
+    </ul>
+</div>
